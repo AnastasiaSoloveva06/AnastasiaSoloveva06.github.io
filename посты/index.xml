@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Постыs on Применение ИИ в образовании</title>
+    <link>http://localhost:1313/%D0%BF%D0%BE%D1%81%D1%82%D1%8B/</link>
+    <description>Recent content in Постыs on Применение ИИ в образовании</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Wed, 10 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/%D0%BF%D0%BE%D1%81%D1%82%D1%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Старт проекта</title>
+      <link>http://localhost:1313/%D0%BF%D0%BE%D1%81%D1%82%D1%8B/progress-1/</link>
+      <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/%D0%BF%D0%BE%D1%81%D1%82%D1%8B/progress-1/</guid>
+      <description>&lt;p&gt;Сегодня мы начали исследование ИИ-инструментов для образования.&lt;br&gt;
+Планируем опросить 20 преподавателей.&lt;/p&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/ai-education.jpg&#34; alt=&#34;План работ&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
