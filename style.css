@@ -1,0 +1,138 @@
+/* Применяем box-sizing ко всем элементам, как требовалось */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Подключенный шрифт */
+    font-family: 'Inter', sans-serif;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* Ограничиваем ширину контента, чтобы было похоже на макет */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+header {
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #000;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+/* Изменение цвета при наведении */
+nav a:hover {
+    color: #f07440; /* Оранжевый цвет при наведении */
+    text-decoration: none; /* Убрать подчеркивание */
+}
+
+/* --- Стили для активной ссылки --- */
+#active {
+    color: tomato;
+}
+
+/* --- Изображения --- */
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px;
+    object-fit: cover;
+    max-height: 400px; /* Ограничим высоту, чтобы было аккуратно */
+}
+
+/* --- Заголовки секций --- */
+h2 {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+/* --- Текст и списки --- */
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* --- Таблица --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 60px; /* Отступ до футера */
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #888;
+    padding: 10px;
+    font-size: 16px;
+}
+
+th {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* Выравнивание названия блюд по центру или левому краю (на скрине по центру) */
+td {
+    vertical-align: middle;
+}
+
+/* --- Футер --- */
+footer {
+    background-color: black;
+    color: white;
+    padding: 30px 0;
+    /* Если контент страницы маленький, футер прибьется к низу, 
+       но здесь контента достаточно */
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    margin-left: 5px;
+}
+
+footer a:hover {
+    color: #ccc;
+}
+
+/* Специальный стиль для контейнера внутри футера, 
+   чтобы текст был выровнен так же, как и основной контент */
+footer .container {
+    padding: 0 20px;
+}

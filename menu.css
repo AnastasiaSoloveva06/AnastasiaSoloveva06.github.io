@@ -1,0 +1,109 @@
+/*
+ * menu.css
+ * Стили только для страницы "Собрать ланч"
+ */
+
+/* Сетка для всех блюд (section > div) */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
+    gap: 20px; /* Увеличил отступ для красоты, в ТЗ было 10px */
+}
+
+/* Карточка одного блюда (section > div > div) */
+.dish-card {
+    background-color: #ffffff;
+    padding: 20px; /* В ТЗ 30/40, но это много для 3-х колонок */
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    transition: border 0.3s ease;
+    border: 2px solid transparent; /* Для плавного hover */
+
+    /* Flex-контейнер для карточки */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Чтобы карточки в ряду были одной высоты */
+}
+
+/* Поведение при наведении на карточку */
+.dish-card:hover {
+    border: 2px solid tomato;
+}
+
+/* Изображение внутри карточки */
+.dish-card img {
+    width: 100%;
+    height: 200px; /* Фиксированная высота для единообразия */
+    object-fit: cover;
+    border-radius: 35px;
+    margin-bottom: 15px;
+}
+
+/* Цена */
+.dish-card .dish-price {
+    font-size: 1.25em; /* 20px */
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Название */
+.dish-card .dish-name {
+    font-size: 1.1em; /* 18px */
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+/* Вес/объем */
+.dish-card .dish-weight {
+    color: #888;
+    margin: 0 0 15px 0;
+}
+
+/* Кнопка "Добавить" */
+.dish-card button {
+    background-color: #f1eee9;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    
+    /* Главное свойство для выравнивания кнопок по низу */
+    margin-top: auto; 
+}
+
+/* Поведение кнопки при наведении на КАРТОЧКУ */
+.dish-card:hover button {
+    background-color: tomato;
+    color: white;
+}
+
+
+/* --- Адаптивность для страницы "Собрать ланч" --- */
+
+/* Планшеты */
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: 1fr 1fr; /* 2 колонки */
+    }
+}
+
+/* Мобильные */
+@media (max-width: 600px) {
+    .menu-section h2 {
+        text-align: center; /* Центрируем заголовок */
+    }
+
+    .dishes-grid {
+        grid-template-columns: 1fr; /* 1 колонка */
+    }
+
+    .dish-card {
+        /* Уменьшаем отступы на мобильных */
+        padding: 20px;
+    }
+}
