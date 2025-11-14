@@ -6,104 +6,143 @@
 /* Сетка для всех блюд (section > div) */
 .dishes-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
-    gap: 20px; /* Увеличил отступ для красоты, в ТЗ было 10px */
+    grid-template-columns: 1fr 1fr 1fr; /* Кол-во колонок: 3, Размер каждого столбца: 1fr */
+    gap: 10px; /* Отступ между элементами сетки: 10px (по ТЗ) */
 }
 
 /* Карточка одного блюда (section > div > div) */
 .dish-card {
-    background-color: #ffffff;
-    padding: 20px; /* В ТЗ 30/40, но это много для 3-х колонок */
-    border-radius: 35px;
-    cursor: pointer;
+    background-color: #ffffff; /* Цвет фона: белый */
+    /* Внутренний отступ: 30px - снизу и сверху, 40px - справа и слева (по ТЗ) */
+    padding: 30px 40px; 
+    border-radius: 35px; /* Радиус закругления: 35px */
+    cursor: pointer; /* Вид курсора: pointer */
+    /* Свойство для добавления тени */
     filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
     transition: border 0.3s ease;
     border: 2px solid transparent; /* Для плавного hover */
 
-    /* Flex-контейнер для карточки */
+    /* Создайте сетку с помощью Flex (по ТЗ) */
     display: flex;
-    flex-direction: column;
-    height: 100%; /* Чтобы карточки в ряду были одной высоты */
+    flex-direction: column; /* Направление элементов в контейнере: вертикальное */
+    /* Важно для выравнивания кнопок по нижней границе ряда */
+    height: 100%; 
 }
 
-/* Поведение при наведении на карточку */
+/* Поведение при наведении на блок с блюдом (hover) */
 .dish-card:hover {
-    border: 2px solid tomato;
+    border: 2px solid tomato; /* Появление сплошной границы толщиной 2px, цвет tomato */
 }
 
-/* Изображение внутри карточки */
+/* Изображение (section>div>div>img) */
 .dish-card img {
-    width: 100%;
-    height: 200px; /* Фиксированная высота для единообразия */
+    width: 100%; /* Растягивается на всю ширину контейнера */
+    height: auto; 
+    max-height: 200px; /* Для единообразия */
+    display: block;
     object-fit: cover;
-    border-radius: 35px;
-    margin-bottom: 15px;
+    border-radius: 35px; /* Радиус закругления: 35px */
+    margin-bottom: 20px; 
 }
 
-/* Цена */
+/* Цена (section>div>div>p с ценой) */
 .dish-card .dish-price {
-    font-size: 1.25em; /* 20px */
+    font-size: 1.5em; /* Увеличить размер шрифта */
     font-weight: 700;
     margin: 0;
 }
 
-/* Название */
+/* Название блюда (section>div>div>p с названием) */
 .dish-card .dish-name {
-    font-size: 1.1em; /* 18px */
+    font-size: 1.25em; /* Увеличить размер шрифта */
     font-weight: 700;
     margin: 10px 0;
+    /* Растягиваем, чтобы кнопки выровнялись по низу */
+    flex-grow: 1; 
 }
 
-/* Вес/объем */
+/* Вес/объем (section>div>div>p с весом/объемом) */
 .dish-card .dish-weight {
-    color: #888;
+    color: #888; /* Изменить цвет текста на серый */
     margin: 0 0 15px 0;
 }
 
-/* Кнопка "Добавить" */
+/* Кнопка (section>div>div>button) */
 .dish-card button {
-    background-color: #f1eee9;
+    background-color: #f1eee9; /* Цвет фона #f1eee9 */
     border: none;
+    /* Внутренние отступы: 10px - снизу и сверху, 30px - справа и слева */
     padding: 10px 30px;
-    border-radius: 10px;
-    cursor: pointer;
+    border-radius: 10px; /* Радиус закругления: 10px */
+    cursor: pointer; /* Вид курсора: pointer */
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     
-    /* Главное свойство для выравнивания кнопок по низу */
-    margin-top: auto; 
+    /* Обязательный отступ сверх */
+    margin-top: 15px; 
+    align-self: flex-start; /* Чтобы кнопка не растягивалась на всю ширину */
+    width: auto;
 }
 
-/* Поведение кнопки при наведении на КАРТОЧКУ */
+/* Изменение цвета фона кнопки внутри блока при наведении на блок (контекстный селектор) */
 .dish-card:hover button {
-    background-color: tomato;
+    background-color: tomato; 
     color: white;
 }
 
 
-/* --- Адаптивность для страницы "Собрать ланч" --- */
-
-/* Планшеты */
+/* Ширина экрана ≤800px (Планшеты) */
 @media (max-width: 800px) {
+    /* Блок с блюдами (section>div) */
     .dishes-grid {
-        grid-template-columns: 1fr 1fr; /* 2 колонки */
+        grid-template-columns: 1fr 1fr; /* Кол-во колонок: 2 */
+        gap: 15px; /* Увеличим отступ, чтобы 2 колонки смотрелись лучше */
+    }
+
+    /* Навигационное меню (nav) (стили перенесены из style.css для этого разрешения, чтобы избежать конфликтов) */
+    .container > header nav {
+        justify-content: space-between; /* Выравнивание по основной оси: space-between */
     }
 }
 
-/* Мобильные */
+/* Ширина экрана ≤600px (Мобильные) */
 @media (max-width: 600px) {
+    /* Главный заголовок страницы (h1) */
+    .container > header h1 {
+        text-align: center; /* Выравнивание текста: по центру */
+    }
+
+    /* Навигационное меню (nav) */
+    .container > header nav {
+        flex-direction: column; /* Направление элементов: вертикальное */
+        align-items: center; /* Выравнивание по поперечной оси: по центру */
+    }
+
+    /* Увеличить шрифт для ссылок на 4px (16px + 4px = 20px) */
+    .container > header nav a {
+        font-size: 20px; 
+    }
+
+    /* Заголовок раздела (section>h2) */
     .menu-section h2 {
-        text-align: center; /* Центрируем заголовок */
+        text-align: center; /* Выравнивание текста: по центру */
     }
 
+    /* Блок с блюдами (section>div) */
     .dishes-grid {
-        grid-template-columns: 1fr; /* 1 колонка */
+        grid-template-columns: 1fr; /* Кол-во колонок: 1 */
+        gap: 20px;
     }
 
+    /* Карточка одного блюда, уменьшим отступы для узкого экрана */
     .dish-card {
-        /* Уменьшаем отступы на мобильных */
-        padding: 20px;
+        padding: 20px 30px;
+    }
+    
+    /* Убедимся, что изображения не слишком высокие на мобильных */
+    .dish-card img {
+        max-height: 150px;
     }
 }
