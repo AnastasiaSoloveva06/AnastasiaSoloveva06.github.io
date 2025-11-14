@@ -4,46 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Собрать ланч - MetroLunch</title>
+    <!-- Подключение Google-шрифта Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- Подключение общих и дополнительных стилей -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
 </head>
 <body>
 
     <div class="container">
+        <!-- Шапка сайта с заголовком и блоком навигации (header) -->
         <header>
             <h1>MetroLunch</h1>
+            <!-- Навигация с перекрестными ссылками -->
             <nav>
-                <a href="index.html">О нас</a>
-                <a href="lunch.html" id="active">Собрать ланч</a> <a href="#">Заказы</a>
+                <a href="1lab.html">О нас</a>
+                <!-- Активная ссылка: Собрать ланч -->
+                <a href="lunch.html" id="active">Собрать ланч</a> 
+                <a href="#">Заказы</a>
                 <a href="#contacts">Контакты</a> 
             </nav>
         </header>
 
+        <!-- Блок с основным содержимым страницы (main) -->
         <main>
+            <!-- Блок с супами (section) -->
             <section class="menu-section">
+                <!-- Заголовок (h2) -->
                 <h2>Выберите суп</h2>
+                <!-- Блок с блюдами (div), используется Grid -->
                 <div class="dishes-grid">
+                    <!-- Блок каждого блюда (div), используется Flex -->
                     <div class="dish-card">
-                        <img src="folo2.jpg" alt="Борщ с говядиой">
-                        <p class="dish-price">395Р</p>
-                        <p class="dish-name">Борщ с говядиой</p>
+                        <!-- Изображение (img) -->
+                        <img src="folo2.jpg" alt="Борщ с говядиной">
+                        <!-- Текст с ценой (p) -->
+                        <p class="dish-price">395₽</p>
+                        <!-- Текст с названием (p) -->
+                        <p class="dish-name">Борщ с говядиной</p>
+                        <!-- Текст с весом/объемом (p) -->
                         <p class="dish-weight">350 г</p>
+                        <!-- Кнопка «Добавить» (button) -->
                         <button>Добавить</button>
                     </div>
                     <div class="dish-card">
-                        <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&q=80&w=400" alt="Грибной суп-пюре">
-                        <p class="dish-price">185Р</p>
+                        <img src="folo9.jpg" alt="Грибной суп-пюре">
+                        <p class="dish-price">185₽</p>
                         <p class="dish-name">Грибной суп-пюре</p>
                         <p class="dish-weight">330 г</p>
                         <button>Добавить</button>
                     </div>
                     <div class="dish-card">
                         <img src="folo3.jpg" alt="Окрошка">
-                        <p class="dish-price">270Р</p>
+                        <p class="dish-price">270₽</p>
                         <p class="dish-name">Окрошка</p>
                         <p class="dish-weight">330 г</p>
                         <button>Добавить</button>
@@ -51,26 +67,28 @@
                 </div>
             </section>
 
+            <!-- Блок с главными блюдами (section) -->
             <section class="menu-section">
                 <h2>Выберите главное блюдо</h2>
                 <div class="dishes-grid">
                     <div class="dish-card">
                         <img src="folo5.jpg" alt="Жареная картошка с грибами">
-                        <p class="dish-price">150Р</p>
-                        <p class="dish-name">Жареная картошка с грибами</p>
+                        <p class="dish-price">150₽</p>
+                        <!-- Длинное название для теста выравнивания кнопки -->
+                        <p class="dish-name">Жареная картошка с грибами и луком</p> 
                         <p class="dish-weight">250 г</p>
                         <button>Добавить</button>
                     </div>
                     <div class="dish-card">
                         <img src="folo1.jpg" alt="Паста Карбонара">
-                        <p class="dish-price">385Р</p>
+                        <p class="dish-price">385₽</p>
                         <p class="dish-name">Паста "Карбонара"</p>
                         <p class="dish-weight">310 г</p>
                         <button>Добавить</button>
                     </div>
                     <div class="dish-card">
                         <img src="folo4.jpg" alt="Пицца Маргарита">
-                        <p class="dish-price">450Р</p>
+                        <p class="dish-price">450₽</p>
                         <p class="dish-name">Пицца "Маргарита"</p>
                         <p class="dish-weight">380 г</p>
                         <button>Добавить</button>
@@ -78,26 +96,27 @@
                 </div>
             </section>
 
+            <!-- Блок с напитками (section) -->
             <section class="menu-section">
                 <h2>Выберите напиток</h2>
                 <div class="dishes-grid">
                     <div class="dish-card">
                         <img src="folo6.jpg" alt="Чай">
-                        <p class="dish-price">80Р</p>
+                        <p class="dish-price">80₽</p>
                         <p class="dish-name">Чай без сахара</p>
                         <p class="dish-weight">300 мл</p>
                         <button>Добавить</button>
                     </div>
                     <div class="dish-card">
                         <img src="folo7.jpg" alt="Яблочный сок">
-                        <p class="dish-price">110Р</p>
+                        <p class="dish-price">110₽</p>
                         <p class="dish-name">Яблочный сок</p>
                         <p class="dish-weight">300 мл</p>
                         <button>Добавить</button>
                     </div>
                     <div class="dish-card">
                         <img src="folo8.jpg" alt="Клубничный смузи">
-                        <p class="dish-price">110Р</p>
+                        <p class="dish-price">110₽</p>
                         <p class="dish-name">Клубничный смузи</p>
                         <p class="dish-weight">300 мл</p>
                         <button>Добавить</button>
@@ -107,6 +126,7 @@
         </main>
     </div>
 
+    <!-- Футер с контактными данными -->
     <footer id="contacts">
         <div class="container">
             <p>Позвонить нам <a href="tel:+74955555555">+7-495-555-55-55</a></p>
