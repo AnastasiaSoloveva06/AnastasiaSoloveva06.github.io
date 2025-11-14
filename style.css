@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+/* Для прибивания футера к низу, если контента мало (Flex Container) */
+html, body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -10,9 +15,17 @@ body {
     font-family: 'Inter', sans-serif;
     color: #000;
     line-height: 1.5;
+    /* Flex-контейнер для stickiness */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Ограничиваем ширину контента, чтобы было похоже на макет */
+/* Основной контент страницы, должен растягиваться, чтобы толкнуть футер вниз */
+main {
+    flex-grow: 1;
+}
+
+/* Ограничиваем ширину контента */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -31,22 +44,28 @@ h1 {
     margin-top: 0;
 }
 
+/* Навигация - делаем Flexbox (по ТЗ) */
+nav {
+    display: flex;
+    gap: 15px; /* Отступ между элементами */
+    flex-wrap: wrap; /* Разрешаем перенос */
+}
+
 nav a {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #000;
-    margin-right: 20px;
     transition: color 0.3s ease;
 }
 
-/* Изменение цвета при наведении */
+/* Изменение цвета при наведении - используем tomato (по ТЗ) */
 nav a:hover {
-    color: #f07440; /* Оранжевый цвет при наведении */
-    text-decoration: none; /* Убрать подчеркивание */
+    color: tomato;
+    text-decoration: none;
 }
 
-/* --- Стили для активной ссылки --- */
+/* --- Стили для активной ссылки (по ТЗ) --- */
 #active {
     color: tomato;
 }
@@ -58,7 +77,7 @@ nav a:hover {
     display: block;
     margin-bottom: 30px;
     object-fit: cover;
-    max-height: 400px; /* Ограничим высоту, чтобы было аккуратно */
+    max-height: 400px; 
 }
 
 /* --- Заголовки секций --- */
@@ -101,7 +120,6 @@ th {
     vertical-align: middle;
 }
 
-/* Выравнивание названия блюд по центру или левому краю (на скрине по центру) */
 td {
     vertical-align: middle;
 }
@@ -111,8 +129,8 @@ footer {
     background-color: black;
     color: white;
     padding: 30px 0;
-    /* Если контент страницы маленький, футер прибьется к низу, 
-       но здесь контента достаточно */
+    /* Положение футера внизу страницы (благодаря flex на body) */
+    margin-top: auto; 
 }
 
 footer p {
@@ -131,8 +149,77 @@ footer a:hover {
     color: #ccc;
 }
 
-/* Специальный стиль для контейнера внутри футера, 
-   чтобы текст был выровнен так же, как и основной контент */
+/* Специальный стиль для контейнера внутри футера */
 footer .container {
     padding: 0 20px;
+}
+
+
+/* Ширина экрана ≤800px */
+@media (max-width: 800px) {
+    /* Изображение в блоке «О нас» */
+    .hero-image img {
+        width: 500px; /* Ширина: 500px */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Навигационное меню (nav) */
+    nav {
+        justify-content: space-between; /* Выравнивание по основной оси: space-between */
+        gap: 10px;
+    }
+}
+
+/* Ширина экрана ≤600px */
+@media (max-width: 600px) {
+    /* Главный заголовок страницы (h1) */
+    header h1 {
+        text-align: center; /* Выравнивание текста: по центру */
+    }
+
+    /* Навигационное меню (nav) */
+    nav {
+        flex-direction: column; /* Направление элементов: вертикальное */
+        align-items: center; /* Выравнивание по поперечной оси: по центру */
+    }
+
+    /* Увеличить шрифт для ссылок на 4px (16px + 4px = 20px) */
+    nav a {
+        font-size: 20px; 
+    }
+
+    /* Изображение в блоке «О нас» */
+    .hero-image img {
+        width: 100%; /* Ширина: 100% */
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Текст таблицы */
+    th, td {
+        font-size: 14px; /* Уменьшить шрифт на 2px (16px - 2px = 14px) */
+        padding: 8px 5px;
+    }
+}
+
+/* Ширина экрана ≤400px */
+@media (max-width: 400px) {
+    /* Текст таблицы */
+    th, td {
+        font-size: 12px; /* Уменьшить шрифт еще на 2px (14px - 2px = 12px) */
+    }
+    
+    /* Дополнительно уменьшаем отступы в таблице */
+    table {
+        table-layout: fixed; /* Для предотвращения горизонтального скролла */
+    }
+    th:nth-child(2), td:nth-child(2) {
+        /* Название блюда занимает больше места */
+        width: 40%; 
+    }
+    th:nth-child(3), td:nth-child(3) {
+        /* Колонка "Кол-во заказов" */
+        font-size: 11px; /* Можно уменьшить шрифт еще для этой колонки */
+    }
 }
