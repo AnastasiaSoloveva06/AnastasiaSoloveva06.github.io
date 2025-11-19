@@ -20,7 +20,7 @@
     /* Свойство для добавления тени */
     filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
     transition: border 0.3s ease;
-    border: 2px solid transparent; /* Для плавного hover */
+    border: 2px solid transparent; 
 
     /* Создайте сетку с помощью Flex (по ТЗ) */
     display: flex;
