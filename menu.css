@@ -1,9 +1,4 @@
-/*
- * menu.css
- * Стили только для страницы "Собрать ланч"
- */
 
-/* Сетка для всех блюд (section > div) */
 .dishes-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Кол-во колонок: 3, Размер каждого столбца: 1fr */
