@@ -212,3 +212,145 @@ footer .container {
         font-size: 11px; 
     }
 }
+
+/* --- Стили для формы заказа --- */
+
+.order-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.order-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    gap: 40px;
+}
+
+.form-column h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+/* Общие стили для Labels */
+.order-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Поля ввода и селекты */
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form input[type="tel"],
+.order-form input[type="time"],
+.order-form select,
+.order-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+/* Специфика для Textarea */
+.order-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Чекбокс (особое выравнивание) */
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    margin-top: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-wrapper label {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+/* Мелкий текст (примечания) */
+.form-note {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: -15px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Радио кнопки времени доставки */
+.delivery-options p {
+    font-weight: 400;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.radio-option input[type="radio"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.radio-option label {
+    margin-bottom: 0;
+}
+
+/* Блок кнопок */
+.form-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.form-buttons button {
+    padding: 10px 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 0; /* Кнопки в макете квадратные */
+    transition: background-color 0.2s;
+}
+
+.form-buttons button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Адаптация формы под мобильные устройства */
+@media (max-width: 700px) {
+    .order-form {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 30px;
+    }
+    
+    .form-buttons {
+        justify-content: center; /* Центрируем кнопки на телефоне */
+    }
+}

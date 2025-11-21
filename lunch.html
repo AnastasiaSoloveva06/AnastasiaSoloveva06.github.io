@@ -4,50 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Собрать ланч - MetroLunch</title>
-    <!-- Подключение Google-шрифта Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Подключение общих и дополнительных стилей -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
 </head>
 <body>
 
     <div class="container">
-        <!-- Шапка сайта с заголовком и блоком навигации (header) -->
         <header>
             <h1>MetroLunch</h1>
-            <!-- Навигация с перекрестными ссылками -->
             <nav>
                 <a href="index.html">О нас</a>
-                <!-- Активная ссылка: Собрать ланч -->
                 <a href="lunch.html" id="active">Собрать ланч</a> 
                 <a href="#">Заказы</a>
                 <a href="#contacts">Контакты</a> 
             </nav>
         </header>
 
-        <!-- Блок с основным содержимым страницы (main) -->
         <main>
-            <!-- Блок с супами (section) -->
             <section class="menu-section">
-                <!-- Заголовок (h2) -->
                 <h2>Выберите суп</h2>
-                <!-- Блок с блюдами (div), используется Grid -->
                 <div class="dishes-grid">
-                    <!-- Блок каждого блюда (div), используется Flex -->
                     <div class="dish-card">
-                        <!-- Изображение (img) -->
                         <img src="folo2.jpg" alt="Борщ с говядиной">
-                        <!-- Текст с ценой (p) -->
                         <p class="dish-price">395₽</p>
-                        <!-- Текст с названием (p) -->
                         <p class="dish-name">Борщ с говядиной</p>
-                        <!-- Текст с весом/объемом (p) -->
                         <p class="dish-weight">350 г</p>
-                        <!-- Кнопка «Добавить» (button) -->
                         <button>Добавить</button>
                     </div>
                     <div class="dish-card">
@@ -67,14 +52,12 @@
                 </div>
             </section>
 
-            <!-- Блок с главными блюдами (section) -->
             <section class="menu-section">
                 <h2>Выберите главное блюдо</h2>
                 <div class="dishes-grid">
                     <div class="dish-card">
                         <img src="folo5.jpg" alt="Жареная картошка с грибами">
                         <p class="dish-price">150₽</p>
-                        <!-- Длинное название для теста выравнивания кнопки -->
                         <p class="dish-name">Жареная картошка с грибами и луком</p> 
                         <p class="dish-weight">250 г</p>
                         <button>Добавить</button>
@@ -96,7 +79,6 @@
                 </div>
             </section>
 
-            <!-- Блок с напитками (section) -->
             <section class="menu-section">
                 <h2>Выберите напиток</h2>
                 <div class="dishes-grid">
@@ -124,9 +106,92 @@
                 </div>
             </section>
         </main>
+
+        <section class="order-section">
+            <h2 class="order-title">Сделать заказ</h2>
+            
+            <form action="https://httpbin.org/post" method="POST" class="order-form">
+                
+                <div class="form-column">
+                    <h3>Ваш заказ</h3>
+
+                    <label for="soup-select">Суп</label>
+                    <select name="soup" id="soup-select" required>
+                        <option value="">-- Выберите суп --</option>
+                        <option value="borsch">Борщ с говядиной</option>
+                        <option value="mushroom_soup">Грибной суп-пюре</option>
+                        <option value="okroshka">Окрошка</option>
+                    </select>
+
+                    <label for="main-dish-select">Главное блюдо</label>
+                    <select name="main_dish" id="main-dish-select" required>
+                        <option value="">-- Выберите главное блюдо --</option>
+                        <option value="potatoes">Жареная картошка с грибами</option>
+                        <option value="carbonara">Паста "Карбонара"</option>
+                        <option value="pizza">Пицца "Маргарита"</option>
+                    </select>
+
+                    <label for="drink-select">Напиток</label>
+                    <select name="drink" id="drink-select" required>
+                        <option value="">-- Выберите напиток --</option>
+                        <option value="tea">Чай без сахара</option>
+                        <option value="apple_juice">Яблочный сок</option>
+                        <option value="smoothie">Клубничный смузи</option>
+                    </select>
+
+                    <label for="comments">Комментарии к заказу</label>
+                    <textarea name="comments" id="comments" rows="5"></textarea>
+                </div>
+
+                <div class="form-column">
+                    <h3>Ваши данные</h3>
+
+                    <label for="name">Имя</label>
+                    <input type="text" name="name" id="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" name="subscribe" id="subscribe" checked>
+                        <label for="subscribe">Получать информацию о скидках и акциях</label>
+                    </div>
+
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" name="phone" id="phone" required>
+
+                    <label for="address">Адрес доставки</label>
+                    <input type="text" name="address" id="address" required>
+                    <div class="form-note">Доставка осуществляется только по Москве</div>
+
+                    <div class="delivery-options">
+                        <p>Время доставки:</p>
+                        <div class="radio-option">
+                            <input type="radio" name="delivery_time_type" id="time-asap" value="asap" required>
+                            <label for="time-asap">Как можно скорее</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="delivery_time_type" id="time-specified" value="specified">
+                            <label for="time-specified">К указанному времени</label>
+                        </div>
+                    </div>
+
+                    <label for="delivery-time">Укажите время доставки</label>
+                    <div class="time-input-wrapper">
+                        <input type="time" name="delivery_time" id="delivery-time" min="07:00" max="23:00" step="300">
+                        <div class="form-note">Доступное время доставки с 7:00 до 23:00</div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="reset" class="btn-reset">Сбросить</button>
+                        <button type="submit" class="btn-submit">Отправить</button>
+                    </div>
+                </div>
+
+            </form>
+        </section>
     </div>
 
-    <!-- Футер с контактными данными -->
     <footer id="contacts">
         <div class="container">
             <p>Позвонить нам <a href="tel:+74955555555">+7-495-555-55-55</a></p>
