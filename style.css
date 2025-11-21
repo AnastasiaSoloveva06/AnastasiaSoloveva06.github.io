@@ -1,9 +1,8 @@
-/* Применяем box-sizing ко всем элементам, как требовалось */
+
 * {
     box-sizing: border-box;
 }
 
-/* Для прибивания футера к низу, если контента мало (Flex Container) */
 html, body {
     height: 100%;
 }
@@ -11,7 +10,6 @@ html, body {
 body {
     margin: 0;
     padding: 0;
-    /* Подключенный шрифт */
     font-family: 'Inter', sans-serif;
     color: #000;
     line-height: 1.5;
@@ -20,19 +18,18 @@ body {
     flex-direction: column;
 }
 
-/* Основной контент страницы, должен растягиваться, чтобы толкнуть футер вниз */
 main {
     flex-grow: 1;
 }
 
-/* Ограничиваем ширину контента */
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- Header --- */
+/* Header */
 header {
     padding-top: 40px;
     padding-bottom: 30px;
@@ -44,11 +41,11 @@ h1 {
     margin-top: 0;
 }
 
-/* Навигация - делаем Flexbox (по ТЗ) */
+
 nav {
     display: flex;
-    gap: 15px; /* Отступ между элементами */
-    flex-wrap: wrap; /* Разрешаем перенос */
+    gap: 15px; 
+    flex-wrap: wrap; 
 }
 
 nav a {
@@ -65,12 +62,12 @@ nav a:hover {
     text-decoration: none;
 }
 
-/* --- Стили для активной ссылки (по ТЗ) --- */
+/* Стили для активной ссылки */
 #active {
     color: tomato;
 }
 
-/* --- Изображения --- */
+/* Изображения */
 .hero-image img {
     width: 100%;
     height: auto;
@@ -80,14 +77,14 @@ nav a:hover {
     max-height: 400px; 
 }
 
-/* --- Заголовки секций --- */
+/* Заголовки секций */
 h2 {
     font-size: 24px;
     margin-top: 40px;
     margin-bottom: 15px;
 }
 
-/* --- Текст и списки --- */
+/* Текст и списки */
 p {
     font-size: 16px;
     margin-bottom: 20px;
@@ -101,11 +98,11 @@ ul li {
     margin-bottom: 5px;
 }
 
-/* --- Таблица --- */
+/* Таблица */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 60px; /* Отступ до футера */
+    margin-bottom: 60px; 
     text-align: center;
 }
 
@@ -124,12 +121,11 @@ td {
     vertical-align: middle;
 }
 
-/* --- Футер --- */
+/* Футер */
 footer {
     background-color: black;
     color: white;
     padding: 30px 0;
-    /* Положение футера внизу страницы (благодаря flex на body) */
     margin-top: auto; 
 }
 
@@ -149,7 +145,6 @@ footer a:hover {
     color: #ccc;
 }
 
-/* Специальный стиль для контейнера внутри футера */
 footer .container {
     padding: 0 20px;
 }
@@ -157,69 +152,63 @@ footer .container {
 
 /* Ширина экрана ≤800px */
 @media (max-width: 800px) {
-    /* Изображение в блоке «О нас» */
     .hero-image img {
-        width: 500px; /* Ширина: 500px */
+        width: 500px; 
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* Навигационное меню (nav) */
     nav {
-        justify-content: space-between; /* Выравнивание по основной оси: space-between */
+        justify-content: space-between; 
         gap: 10px;
     }
 }
 
 /* Ширина экрана ≤600px */
 @media (max-width: 600px) {
-    /* Главный заголовок страницы (h1) */
     header h1 {
-        text-align: center; /* Выравнивание текста: по центру */
+        text-align: center; 
     }
 
-    /* Навигационное меню (nav) */
     nav {
-        flex-direction: column; /* Направление элементов: вертикальное */
-        align-items: center; /* Выравнивание по поперечной оси: по центру */
+        flex-direction: column; 
+        align-items: center; 
     }
 
-    /* Увеличить шрифт для ссылок на 4px (16px + 4px = 20px) */
+
     nav a {
         font-size: 20px; 
     }
 
-    /* Изображение в блоке «О нас» */
     .hero-image img {
-        width: 100%; /* Ширина: 100% */
+        width: 100%; 
         margin-left: 0;
         margin-right: 0;
     }
 
-    /* Текст таблицы */
+
     th, td {
-        font-size: 14px; /* Уменьшить шрифт на 2px (16px - 2px = 14px) */
+        font-size: 14px; 
         padding: 8px 5px;
     }
 }
 
 /* Ширина экрана ≤400px */
 @media (max-width: 400px) {
-    /* Текст таблицы */
     th, td {
-        font-size: 12px; /* Уменьшить шрифт еще на 2px (14px - 2px = 12px) */
+        font-size: 12px; 
     }
     
-    /* Дополнительно уменьшаем отступы в таблице */
+
     table {
-        table-layout: fixed; /* Для предотвращения горизонтального скролла */
+        table-layout: fixed; 
     }
     th:nth-child(2), td:nth-child(2) {
-        /* Название блюда занимает больше места */
+    
         width: 40%; 
     }
     th:nth-child(3), td:nth-child(3) {
-        /* Колонка "Кол-во заказов" */
-        font-size: 11px; /* Можно уменьшить шрифт еще для этой колонки */
+   
+        font-size: 11px; 
     }
 }
