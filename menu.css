@@ -106,38 +106,52 @@
 @media (max-width: 600px) {
     /* Главный заголовок страницы (h1) */
     .container > header h1 {
-        text-align: center; /* Выравнивание текста: по центру */
+        text-align: center;
     }
 
     /* Навигационное меню (nav) */
     .container > header nav {
-        flex-direction: column; /* Направление элементов: вертикальное */
-        align-items: center; /* Выравнивание по поперечной оси: по центру */
+        flex-direction: column;
+        align-items: center;
     }
 
-    /* Увеличить шрифт для ссылок на 4px (16px + 4px = 20px) */
     .container > header nav a {
         font-size: 20px; 
     }
 
-    /* Заголовок раздела (section>h2) */
+    /* Заголовок раздела */
     .menu-section h2 {
-        text-align: center; /* Выравнивание текста: по центру */
+        text-align: center;
     }
 
-    /* Блок с блюдами (section>div) */
+    /* Делаем одну колонку для блюд */
     .dishes-grid {
-        grid-template-columns: 1fr; /* Кол-во колонок: 1 */
-        gap: 20px;
+        grid-template-columns: 1fr; 
+        gap: 25px; /* Чуть больше воздуха между карточками */
     }
 
-    /* Карточка одного блюда, уменьшим отступы для узкого экрана */
+    /* Карточка блюда */
     .dish-card {
-        padding: 20px 30px;
+        /* Уменьшаем внутренние отступы, чтобы на узком экране было больше места контенту */
+        padding: 20px; 
+        border-radius: 25px; /* Чуть меньше скругление для мобилок */
     }
     
-    /* Убедимся, что изображения не слишком высокие на мобильных */
+    /* Изображение */
     .dish-card img {
-        max-height: 150px;
+        /* ВАЖНО: Убираем жесткое ограничение в 150px */
+        max-height: none; 
+        
+        /* Задаем пропорцию. 4/3 или 16/9 выглядит на телефоне лучше всего */
+        aspect-ratio: 4 / 3; 
+        
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    /* Опционально: чуть уменьшить заголовок блюда, если названия длинные */
+    .dish-card .dish-name {
+        font-size: 1.1em;
     }
 }
