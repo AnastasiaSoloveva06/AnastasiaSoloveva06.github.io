@@ -80,15 +80,11 @@
 }
 
 
-/* ------------------------------------------- */
-/* --- НОВЫЕ СТИЛИ ДЛЯ ФИЛЬТРОВ (Кнопок) --- */
-/* ------------------------------------------- */
-
 .filters {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-    flex-wrap: wrap; /* Для адаптивности */
+    flex-wrap: wrap;
 }
 
 .filters button {
@@ -117,8 +113,6 @@
 }
 
 
-/* --- Адаптация для мобильных устройств (800px и 600px) --- */
-
 /* Ширина экрана ≤800px (Планшеты) */
 @media (max-width: 800px) {
     .dishes-grid {
@@ -145,18 +139,37 @@
     }
 
     .container > header nav a {
-        padding: 5px 0;
+        font-size: 20px; 
     }
-    
+
+
+    .menu-section h2 {
+        text-align: center;
+    }
+
+
     .dishes-grid {
-        grid-template-columns: 1fr; /* Одна колонка */
+        grid-template-columns: 1fr; 
+        gap: 25px; 
     }
 
     .dish-card {
-        padding: 20px 30px;
+        padding: 20px; 
+        border-radius: 25px; 
+    }
+    
+    /* Изображение */
+    .dish-card img {
+        max-height: none; 
+
+        aspect-ratio: 4 / 3; 
+        
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
     }
 
-    .filters {
-        justify-content: center;
+    .dish-card .dish-name {
+        font-size: 1.1em;
     }
 }

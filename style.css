@@ -153,10 +153,7 @@ footer .container {
 /* Ширина экрана ≤800px */
 @media (max-width: 800px) {
     .hero-image img {
-        /* Убираем жесткую ширину, чтобы изображение занимало всю доступную ширину контейнера */
-        width: 100%; 
-        /* max-height: 400px (унаследовано из общих стилей) + object-fit: cover
-           обеспечивают, что изображение не искажается. */
+        width: 500px; 
         margin-left: auto;
         margin-right: auto;
     }
