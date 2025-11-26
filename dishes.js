@@ -58,7 +58,7 @@ const dishes = [
         price: 80,
         category: 'drink',
         count: '300 мл',
-        image: 'folo6.jp/g'
+        image: 'folo6.jpg'
     },
     {
         keyword: 'apple_juice',
