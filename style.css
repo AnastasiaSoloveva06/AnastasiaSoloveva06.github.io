@@ -395,3 +395,57 @@ footer .container {
     font-size: 18px;
     font-weight: bold;
 }
+
+/* Стили для окна уведомления */
+
+dialog#validation-dialog {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none; 
+    margin: auto; 
+    height: fit-content; 
+    
+    padding: 0;
+    border: none;
+    border-radius: 15px; 
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    width: 90%;
+    z-index: 1000; 
+    
+    padding: 40px 30px 25px 30px; 
+    text-align: center;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(1px); 
+}
+
+.notification-message {
+    font-size: 1.2em; 
+    font-weight: 500;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.notification-button {
+    padding: 12px 40px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333; 
+    background-color: transparent; 
+    border: 1px solid #000;
+    border-radius: 30px; 
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.notification-button:hover {
+    background-color: #f0f0f0; 
+}

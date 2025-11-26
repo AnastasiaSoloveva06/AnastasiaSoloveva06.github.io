@@ -3,13 +3,13 @@ dishes.sort((a, b) => a.name.localeCompare(b.name));
 
 let currentOrder = {
     soup: null,
-    salad: null, // Новая категория
+    salad: null, 
     main: null,
     drink: null,
-    dessert: null // Новая категория
+    dessert: null 
 };
 
-// Хранение активных фильтров для каждой категории
+
 const activeFilters = {
     soup: null,
     salad: null,
@@ -19,7 +19,6 @@ const activeFilters = {
 };
 
 // Получение элементов-контейнеров
-// Контейнеры для новых категорий: saladsGrid и dessertsGrid
 const soupsGrid = document.getElementById('soups-grid');
 const saladsGrid = document.getElementById('salads-grid'); 
 const mainsGrid = document.getElementById('mains-grid');
@@ -66,9 +65,8 @@ function createDishCard(dish) {
     return card;
 }
 
-// Универсальная функция отображения блюд в сетке с учетом фильтра
+// Универсальная функция отображения блюд
 function renderDishes(category, filterKind = null) {
-    // Определяем нужный контейнер по категории
     let gridElement;
     if (category === 'soup') gridElement = soupsGrid;
     else if (category === 'salad') gridElement = saladsGrid;
@@ -77,12 +75,10 @@ function renderDishes(category, filterKind = null) {
     else if (category === 'dessert') gridElement = dessertsGrid;
     else return;
 
-    gridElement.innerHTML = ''; // Очищаем сетку
+    gridElement.innerHTML = ''; 
 
     const filteredDishes = dishes.filter(dish => {
-        // Условие 1: Блюдо принадлежит нужной категории
         const categoryMatch = dish.category === category;
-        // Условие 2: Если фильтр задан, проверяем совпадение kind, иначе true
         const kindMatch = !filterKind || dish.kind === filterKind;
         return categoryMatch && kindMatch;
     });
@@ -106,7 +102,7 @@ function addToOrder(dish) {
     updateOrderDisplay();
 }
 
-// Функция обновления отображения заказа и итоговой стоимости (обновлена для 5 категорий)
+// Функция обновления отображения заказа и итоговой стоимости
 function updateOrderDisplay() {
     const emptyMessage = document.getElementById('nothing-selected');
     const orderSummary = document.getElementById('order-summary');
@@ -115,32 +111,28 @@ function updateOrderDisplay() {
 
    
     const inputSoup = document.getElementById('input-soup');
-    const inputSalad = document.getElementById('input-salad'); // Новое скрытое поле
+    const inputSalad = document.getElementById('input-salad'); 
     const inputMain = document.getElementById('input-main');
     const inputDrink = document.getElementById('input-drink');
-    const inputDessert = document.getElementById('input-dessert'); // Новое скрытое поле
+    const inputDessert = document.getElementById('input-dessert'); 
 
     const isAnySelected = currentOrder.soup || currentOrder.salad || currentOrder.main || currentOrder.drink || currentOrder.dessert;
 
     if (!isAnySelected) {
-        // Если ничего не выбрано
         emptyMessage.style.display = 'block';
         orderSummary.style.display = 'none';
         totalPriceBlock.style.display = 'none';
     } else {
-        // Если выбрано хотя бы одно блюдо
         emptyMessage.style.display = 'none';
         orderSummary.style.display = 'block';
         totalPriceBlock.style.display = 'block';
 
-        // Обновляем строки для всех 5 категорий
         updateSummaryRow('soup', 'Суп');
         updateSummaryRow('salad', 'Салат/Стартер'); 
         updateSummaryRow('main', 'Главное блюдо');
         updateSummaryRow('drink', 'Напиток');
         updateSummaryRow('dessert', 'Десерт'); 
 
-        // Считаем итоговую стоимость
         let total = 0;
         if (currentOrder.soup) total += currentOrder.soup.price;
         if (currentOrder.salad) total += currentOrder.salad.price; 
@@ -151,7 +143,6 @@ function updateOrderDisplay() {
         totalPriceValue.textContent = `${total}₽`;
     }
 
-    // Обновляем значения скрытых полей для отправки формы
     inputSoup.value = currentOrder.soup ? currentOrder.soup.keyword : '';
     inputSalad.value = currentOrder.salad ? currentOrder.salad.keyword : ''; 
     inputMain.value = currentOrder.main ? currentOrder.main.keyword : '';
@@ -164,7 +155,6 @@ function updateSummaryRow(type, labelText) {
     const row = document.getElementById(`order-${type}`);
     const dish = currentOrder[type];
     
-    // Очистка содержания
     row.innerHTML = '';
 
     const label = document.createElement('span');
@@ -196,27 +186,23 @@ renderDishes('dessert');
 const menuSections = document.querySelectorAll('.menu-section');
 
 menuSections.forEach(section => {
-    const category = section.dataset.category; // soup, salad, main, drink, dessert
+    const category = section.dataset.category; 
     const filterButtons = section.querySelectorAll('.filters button');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const kind = button.dataset.kind;
 
-
             if (activeFilters[category] === kind) {
-  
                 activeFilters[category] = null;
                 button.classList.remove('active');
             } else {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 
-
                 activeFilters[category] = kind;
                 button.classList.add('active');
             }
 
-         
             renderDishes(category, activeFilters[category]);
         });
     });
@@ -225,7 +211,110 @@ menuSections.forEach(section => {
 updateOrderDisplay();
 
 
+// ФУНКЦИИ ДЛЯ УВЕДОМЛЕНИЯ 
+
+function showNotification(message) {
+    let existingDialog = document.getElementById('validation-dialog');
+    if (existingDialog) {
+        existingDialog.remove();
+    }
+
+    const dialog = document.createElement('dialog');
+    dialog.id = 'validation-dialog';
+
+    dialog.innerHTML = `
+        <div class="notification-content">
+            <p class="notification-message">${message}</p>
+            <button class="notification-button">Окей 👌</button>
+        </div>
+    `; 
+
+
+    const button = dialog.querySelector('.notification-button');
+    
+    button.addEventListener('click', () => {
+        dialog.close(); 
+        dialog.remove();
+    });
+    
+    document.body.appendChild(dialog);
+    dialog.showModal(); 
+}
+
+/**
+ * Проверяет, соответствует ли текущий заказ одному из комбо.
+ * Возвращает null, если комбо выбрано, или сообщение об ошибке, если нет.
+ */
+function validateOrder() {
+    const hasSoup = !!currentOrder.soup;
+    const hasSalad = !!currentOrder.salad;
+    const hasMain = !!currentOrder.main;
+    const hasDrink = !!currentOrder.drink;
+    const hasDessert = !!currentOrder.dessert;
+    
+    const hasBaseComponent = hasSoup || hasSalad || hasMain;
+
+
+    // 1. Уведомление: Ничего не выбрано
+    if (!hasBaseComponent && !hasDrink && !hasDessert) {
+        return 'Ничего не выбрано. Выберите блюда для заказа'; // Уведомление 1
+    }
+    
+    // 5. Уведомление: Выбран только напиток/десерт, но нет основных блюд 
+    if ((hasDrink || hasDessert) && !hasBaseComponent) {
+        return 'Выберите главное блюдо'; // Уведомление 5
+    }
+
+    // 3. Уведомление: Выбран суп, но не выбраны главное блюдо/салат/стартер
+    if (hasSoup && !hasMain && !hasSalad) {
+        return 'Выберите главное блюдо/салат/стартер'; // Уведомление 3
+    }
+    
+    // 4. Уведомление: Выбран салат/стартер, но не выбраны суп/главное блюдо
+    if (hasSalad && !hasMain && !hasSoup) {
+        return 'Выберите суп или главное блюдо'; // Уведомление 4
+    }
+    
+    // Дополнительная проверка: Выбраны Суп и Салат, но нет Главного
+    if (hasSoup && hasSalad && !hasMain) {
+        return 'Выберите главное блюдо';
+    }
+
+
+    // Главная логика проверки комбо:
+    // Комбо-база считается выбранной, если есть (Суп И Главное) ИЛИ (Салат И Главное).
+    const isBaseComboSelected = (hasSoup && hasMain) || (hasSalad && hasMain);
+
+    if (isBaseComboSelected) {
+        // 2. Уведомление: База выбрана, но не выбран НАПИТОК. (Десерт не заменяет напиток для прохождения этого теста)
+        if (!hasDrink) {
+            return 'Выберите напиток'; // Уведомление 2
+        }
+        
+        // Если база есть И Напиток есть, то все ОК (наличие десерта игнорируется, т.к. он опционален)
+        return null; 
+    }
+    
+    // Если ни одно из правил не сработало, значит, выбрана какая-то невалидная комбинация
+    return 'Некорректный набор блюд. Требуется комбинация Главное+Суп/Салат и Напиток.';
+}
+
+
 const orderForm = document.querySelector('.order-form');
+
+
+orderForm.addEventListener('submit', (event) => {
+    event.preventDefault(); 
+    
+    const validationMessage = validateOrder();
+
+    if (validationMessage) {
+        showNotification(validationMessage);
+    } else {
+        console.log('Заказ валиден и готов к отправке!');
+        event.target.submit(); 
+    }
+});
 
 orderForm.addEventListener('reset', (event) => {
     currentOrder = {
@@ -236,4 +325,9 @@ orderForm.addEventListener('reset', (event) => {
         dessert: null
     };
     updateOrderDisplay();
+
+    let existingDialog = document.getElementById('validation-dialog');
+    if (existingDialog) {
+        existingDialog.remove();
+    }
 });
