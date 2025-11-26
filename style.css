@@ -56,7 +56,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
-/* Изменение цвета при наведении - используем tomato (по ТЗ) */
+
 nav a:hover {
     color: tomato;
     text-decoration: none;
@@ -335,7 +335,7 @@ footer .container {
     cursor: pointer;
     background-color: #fff;
     border: 1px solid #000;
-    border-radius: 0; /* Кнопки в макете квадратные */
+    border-radius: 0; 
     transition: background-color 0.2s;
 }
 
@@ -346,12 +346,12 @@ footer .container {
 /* Адаптация формы под мобильные устройства */
 @media (max-width: 700px) {
     .order-form {
-        grid-template-columns: 1fr; /* Одна колонка */
+        grid-template-columns: 1fr; 
         gap: 30px;
     }
     
     .form-buttons {
-        justify-content: center; /* Центрируем кнопки на телефоне */
+        justify-content: center; 
     }
 }
 
@@ -377,7 +377,7 @@ footer .container {
 }
 
 .order-item-label {
-    font-weight: 700; /* Жирный заголовок категории (Суп:) */
+    font-weight: 700; 
     margin-right: 10px;
 }
 
@@ -395,151 +395,3 @@ footer .container {
     font-size: 18px;
     font-weight: bold;
 }
-
-/* --- Стили для блока Комбо --- */
-.combo-info {
-    margin: 50px 0; /* Отступы сверху и снизу */
-    text-align: center;
-}
-
-.combo-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.combo-grid {
-    display: grid;
-    /* Ровно 3 колонки равной ширины */
-    grid-template-columns: 1fr 1fr 1fr; 
-    /* Расстояние между ячейками */
-    column-gap: 20px; 
-    row-gap: 50px; 
-    align-items: start; /* Выравнивание по верхнему краю ячейки */
-}
-
-/* Сам блок одного варианта комбо */
-.combo-option {
-    display: flex;
-    justify-content: center; /* Центрируем иконки внутри ячейки грида */
-    gap: 15px; /* Расстояние между иконками внутри одного комбо */
-}
-
-/* Блок одной иконки (картинка + текст) */
-.combo-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80px; /* Фиксированная ширина, чтобы текст переносился красиво */
-}
-
-.combo-item img {
-    width: 50px; /* Размер иконки */
-    height: auto;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-}
-
-/* Анимация при наведении (по ТЗ) */
-.combo-item img:hover {
-    transform: translateY(-5px) scale(1.1);
-}
-
-.combo-item span {
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.2;
-    color: #000;
-}
-
-/* Специфика для Десерта */
-.dessert-option {
-    /* Десерт занимает свою обычную ячейку в сетке (правую нижнюю) */
-    display: flex;
-    justify-content: center;
-}
-
-.dessert-option .combo-item {
-    width: 140px; /* Делаем пошире для длинного текста примечания */
-}
-
-.dessert-note {
-    display: block;
-    margin-top: 5px;
-    font-size: 11px !important; /* Меньше основного текста на 2pt */
-    color: #555;
-    font-weight: 400 !important;
-}
-
-/* Адаптив: на мобильных превращаем в 1 колонку или 2 */
-@media (max-width: 900px) {
-    .combo-grid {
-        grid-template-columns: 1fr 1fr; /* 2 колонки */
-    }
-}
-
-@media (max-width: 600px) {
-    .combo-grid {
-        grid-template-columns: 1fr; /* 1 колонка */
-        gap: 40px;
-    }
-}
-
-/* --- Стили для уведомления (Модальное окно) --- */
-
-/* Затемненный фон (Overlay) */
-.notification-overlay {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    display: flex; 
-    justify-content: center; /* Центр по горизонтали */
-    align-items: center; /* Центр по вертикали */
-    z-index: 9999; 
-    pointer-events: auto;
-}
-
-/* Белое окно сообщения */
-.notification-box {
-    background-color: #ffffff;
-    padding: 40px 50px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 450px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    font-family: 'Inter', sans-serif;
-    position: relative;
-}
-
-/* Текст сообщения */
-.notification-msg {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 30px;
-    line-height: 1.4;
-    color: #000;
-}
-
-/* Кнопка "Окей" */
-.notification-btn {
-    background-color: transparent; /* Исходный цвет фона */
-    color: #000; /* Исходный цвет текста */
-    border: 2px solid #000;
-    padding: 12px 40px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    /* Убрано свойство transition, так как hover-эффект полностью контролируется JS для соответствия ТЗ */
-    font-family: 'Inter', sans-serif;
-}
-/*
-.notification-btn:hover {
-    Стили :hover удалены отсюда, так как они реализованы через JS
-}
-*/
