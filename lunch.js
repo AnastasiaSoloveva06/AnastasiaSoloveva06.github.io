@@ -98,11 +98,10 @@ function renderDishes(category, filterKind = null) {
 function addToOrder(dish) {
 
     if (dish.category === 'soup') currentOrder.soup = dish;
-     // Новая категория
     if (dish.category === 'main') currentOrder.main = dish;
     if (dish.category === 'salad') currentOrder.salad = dish;
     if (dish.category === 'drink') currentOrder.drink = dish;
-    if (dish.category === 'dessert') currentOrder.dessert = dish; // Новая категория
+    if (dish.category === 'dessert') currentOrder.dessert = dish; 
 
     updateOrderDisplay();
 }
@@ -231,3 +230,112 @@ menuSections.forEach(section => {
 
 // Инициализируем отображение заказа при загрузке страницы
 updateOrderDisplay();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const orderForm = document.querySelector('.order-form'); 
+
+    if (!orderForm) return;
+
+    // === ФУНКЦИЯ УВЕДОМЛЕНИЯ (Полностью реализована) ===
+    function showNotification(message) {
+        // Удаляем существующий оверлей, если он есть
+        const existingOverlay = document.querySelector('.notification-overlay');
+        if (existingOverlay) existingOverlay.remove();
+
+        const overlay = document.createElement('div');
+        // Используем CSS-класс для центровки и фиксированной позиции
+        overlay.className = 'notification-overlay'; 
+
+        const box = document.createElement('div');
+        box.className = 'notification-box';
+
+        const msgPara = document.createElement('p');
+        msgPara.className = 'notification-msg';
+        msgPara.textContent = message;
+
+        const btn = document.createElement('button');
+        btn.className = 'notification-btn';
+        btn.textContent = 'Окей';
+
+        // Обработчик нажатия на кнопку: удаление уведомления
+        btn.addEventListener('click', function() {
+            overlay.remove();
+        });
+        
+        // Обработка наведения на кнопку (по требованию ТЗ)
+        btn.onmouseenter = function() {
+            btn.style.backgroundColor = 'tomato'; // Цвет фона при наведении
+            btn.style.color = 'white'; // Цвет текста при наведении
+        };
+        btn.onmouseleave = function() {
+            // Возврат к стилям по умолчанию (из style.css)
+            btn.style.backgroundColor = 'transparent';
+            btn.style.color = 'black';
+        };
+
+        box.appendChild(msgPara);
+        box.appendChild(btn);
+        overlay.appendChild(box);
+        document.body.appendChild(overlay);
+    }
+    
+    // === ЛОГИКА ПРОВЕРКИ КОМБО (Исправлена и оптимизирована) ===
+    orderForm.addEventListener('submit', function(event) {
+        
+        // ВСЕГДА предотвращаем стандартную отправку формы
+        event.preventDefault(); 
+        
+        // Получаем логические флаги наличия блюд
+        const hasSoup = !!document.getElementById('input-soup')?.value;
+        const hasMain = !!document.getElementById('input-main')?.value;
+        const hasSalad = !!document.getElementById('input-salad')?.value;
+        const hasDrink = !!document.getElementById('input-drink')?.value;
+        const hasDessert = !!document.getElementById('input-dessert')?.value;
+        
+        // Флаг наличия "основной еды" (суп, салат, главное)
+        const hasAnyFood = hasSoup || hasMain || hasSalad;
+
+        let errorMessage = null;
+
+        // 1. Сценарий: Ничего не выбрано (Высший приоритет)
+        if (!hasAnyFood && !hasDrink && !hasDessert) {
+            errorMessage = 'Ничего не выбрано. Выберите блюда для заказа';
+        }
+        
+        // 2. Сценарий: Выберите напиток (Есть любая еда, но нет напитка)
+        else if (hasAnyFood && !hasDrink) {
+            errorMessage = 'Выберите напиток';
+        }
+
+        // 3. Сценарий: Выберите главное блюдо (Выбран только напиток/десерт, но нет ОСНОВНОЙ еды)
+        // Сценарий 2 уже отработал, если Drink не выбран. Если Drink выбран, и нет еды, сюда.
+        // Если hasAnyFood == false
+        else if (!hasAnyFood) {
+            errorMessage = 'Выберите главное блюдо';
+        }
+
+        // 4. Сценарий: Выберите суп или главное блюдо (Выбран Салат, но нет Супа И нет Главного)
+        // Здесь мы уже знаем, что Напиток выбран (иначе сработал бы Сценарий 2), и что хотя бы что-то из еды выбрано (иначе сработал бы Сценарий 3).
+        else if (hasSalad && !hasSoup && !hasMain) {
+            errorMessage = 'Выберите суп или главное блюдо';
+        }
+        
+        // 5. Сценарий: Выберите главное блюдо/салат/стартер (Выбран Суп, но нет Главного И нет Салата)
+        // Аналогично, здесь мы знаем, что Напиток выбран и что есть еда.
+        else if (hasSoup && !hasMain && !hasSalad) {
+            errorMessage = 'Выберите главное блюдо/салат/стартер';
+        }
+        
+        // --- ВЫВОД РЕЗУЛЬТАТА ---
+
+        if (errorMessage) {
+            // Если найдена ошибка, показываем уведомление
+            showNotification(errorMessage);
+        } else {
+            // Если ошибок нет - комбо валидно. Отправляем форму.
+            // Примечание: В реальном приложении здесь лучше использовать AJAX/fetch.
+            alert('Заказ успешно отправлен! Спасибо за ваш выбор.');
+            // orderForm.submit(); // Если действительно нужно отправить, раскомментировать
+        }
+    });
+});
