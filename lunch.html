@@ -25,19 +25,53 @@
         </header>
 
         <main>
-            <section class="menu-section">
+            <section class="menu-section" data-category="soup">
                 <h2>Выберите суп</h2>
+                <div class="filters">
+                    <button data-kind="fish">рыбный</button>
+                    <button data-kind="meat">мясной</button>
+                    <button data-kind="veg">вегетарианский</button>
+                </div>
                 <div class="dishes-grid" id="soups-grid"></div>
             </section>
 
-            <section class="menu-section">
+            <section class="menu-section" data-category="main">
                 <h2>Выберите главное блюдо</h2>
+                <div class="filters">
+                    <button data-kind="fish">рыбное</button>
+                    <button data-kind="meat">мясное</button>
+                    <button data-kind="veg">вегетарианское</button>
+                </div>
                 <div class="dishes-grid" id="mains-grid"></div>
             </section>
+            
+            <section class="menu-section" data-category="salad">
+                <h2>Выберите салат или стартер</h2>
+                <div class="filters">
+                    <button data-kind="fish">рыбный</button>
+                    <button data-kind="meat">мясной</button>
+                    <button data-kind="veg">вегетарианский</button>
+                </div>
+                <div class="dishes-grid" id="salads-grid"></div>
+            </section>
 
-            <section class="menu-section">
+            <section class="menu-section" data-category="drink">
                 <h2>Выберите напиток</h2>
+                <div class="filters">
+                    <button data-kind="cold">холодный</button>
+                    <button data-kind="hot">горячий</button>
+                </div>
                 <div class="dishes-grid" id="drinks-grid"></div>
+            </section>
+            
+            <section class="menu-section" data-category="dessert">
+                <h2>Выберите десерт</h2>
+                <div class="filters">
+                    <button data-kind="small">маленькая порция</button>
+                    <button data-kind="medium">средняя порция</button>
+                    <button data-kind="large">большая порция</button>
+                </div>
+                <div class="dishes-grid" id="desserts-grid"></div>
             </section>
         </main>
 
@@ -54,9 +88,9 @@
 
                         <div id="order-summary" style="display: none;">
                             <div class="order-row" id="order-soup"></div>
-                            <div class="order-row" id="order-main"></div>
+                            <div class="order-row" id="order-salad"></div> <div class="order-row" id="order-main"></div>
                             <div class="order-row" id="order-drink"></div>
-                        </div>
+                            <div class="order-row" id="order-dessert"></div> </div>
 
                         <div id="total-price-block" style="display: none;">
                             <span class="total-label">Итого</span>
@@ -68,13 +102,12 @@
                     <textarea name="comments" id="comments" rows="5"></textarea>
 
                     <input type="hidden" name="soup" id="input-soup">
-                    <input type="hidden" name="main_dish" id="input-main">
+                    <input type="hidden" name="salad_starter" id="input-salad"> <input type="hidden" name="main_dish" id="input-main">
                     <input type="hidden" name="drink" id="input-drink">
-                </div>
+                    <input type="hidden" name="dessert" id="input-dessert"> </div>
 
                 <div class="form-column">
                     <h3>Ваши данные</h3>
-
                     <label for="name">Имя</label>
                     <input type="text" name="name" id="name" required>
 
