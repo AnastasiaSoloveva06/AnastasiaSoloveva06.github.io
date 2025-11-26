@@ -354,3 +354,43 @@ footer .container {
         justify-content: center; /* Центрируем кнопки на телефоне */
     }
 }
+/* Стили для динамического блока заказа */
+#order-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+#nothing-selected {
+    color: #888;
+    font-style: italic;
+}
+
+.order-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: baseline;
+}
+
+.order-item-label {
+    font-weight: 700; /* Жирный заголовок категории (Суп:) */
+    margin-right: 10px;
+}
+
+.order-item-value {
+    text-align: right;
+    flex-grow: 1;
+}
+
+#total-price-block {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+}

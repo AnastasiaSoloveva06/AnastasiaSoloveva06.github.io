@@ -27,83 +27,17 @@
         <main>
             <section class="menu-section">
                 <h2>Выберите суп</h2>
-                <div class="dishes-grid">
-                    <div class="dish-card">
-                        <img src="folo2.jpg" alt="Борщ с говядиной">
-                        <p class="dish-price">395₽</p>
-                        <p class="dish-name">Борщ с говядиной</p>
-                        <p class="dish-weight">350 г</p>
-                        <button>Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="folo9.jpg" alt="Грибной суп-пюре">
-                        <p class="dish-price">185₽</p>
-                        <p class="dish-name">Грибной суп-пюре</p>
-                        <p class="dish-weight">330 г</p>
-                        <button>Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="folo3.jpg" alt="Окрошка">
-                        <p class="dish-price">270₽</p>
-                        <p class="dish-name">Окрошка</p>
-                        <p class="dish-weight">330 г</p>
-                        <button>Добавить</button>
-                    </div>
-                </div>
+                <div class="dishes-grid" id="soups-grid"></div>
             </section>
 
             <section class="menu-section">
                 <h2>Выберите главное блюдо</h2>
-                <div class="dishes-grid">
-                    <div class="dish-card">
-                        <img src="folo5.jpg" alt="Жареная картошка с грибами">
-                        <p class="dish-price">150₽</p>
-                        <p class="dish-name">Жареная картошка с грибами и луком</p> 
-                        <p class="dish-weight">250 г</p>
-                        <button>Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="folo1.jpg" alt="Паста Карбонара">
-                        <p class="dish-price">385₽</p>
-                        <p class="dish-name">Паста "Карбонара"</p>
-                        <p class="dish-weight">310 г</p>
-                        <button>Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="folo4.jpg" alt="Пицца Маргарита">
-                        <p class="dish-price">450₽</p>
-                        <p class="dish-name">Пицца "Маргарита"</p>
-                        <p class="dish-weight">380 г</p>
-                        <button>Добавить</button>
-                    </div>
-                </div>
+                <div class="dishes-grid" id="mains-grid"></div>
             </section>
 
             <section class="menu-section">
                 <h2>Выберите напиток</h2>
-                <div class="dishes-grid">
-                    <div class="dish-card">
-                        <img src="folo6.jpg" alt="Чай">
-                        <p class="dish-price">80₽</p>
-                        <p class="dish-name">Чай без сахара</p>
-                        <p class="dish-weight">300 мл</p>
-                        <button>Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="folo7.jpg" alt="Яблочный сок">
-                        <p class="dish-price">110₽</p>
-                        <p class="dish-name">Яблочный сок</p>
-                        <p class="dish-weight">300 мл</p>
-                        <button>Добавить</button>
-                    </div>
-                    <div class="dish-card">
-                        <img src="folo8.jpg" alt="Клубничный смузи">
-                        <p class="dish-price">110₽</p>
-                        <p class="dish-name">Клубничный смузи</p>
-                        <p class="dish-weight">300 мл</p>
-                        <button>Добавить</button>
-                    </div>
-                </div>
+                <div class="dishes-grid" id="drinks-grid"></div>
             </section>
         </main>
 
@@ -114,33 +48,28 @@
                 
                 <div class="form-column">
                     <h3>Ваш заказ</h3>
+                    
+                    <div id="order-container">
+                        <div id="nothing-selected">Ничего не выбрано</div>
 
-                    <label for="soup-select">Суп</label>
-                    <select name="soup" id="soup-select" required>
-                        <option value="">-- Выберите суп --</option>
-                        <option value="borsch">Борщ с говядиной</option>
-                        <option value="mushroom_soup">Грибной суп-пюре</option>
-                        <option value="okroshka">Окрошка</option>
-                    </select>
+                        <div id="order-summary" style="display: none;">
+                            <div class="order-row" id="order-soup"></div>
+                            <div class="order-row" id="order-main"></div>
+                            <div class="order-row" id="order-drink"></div>
+                        </div>
 
-                    <label for="main-dish-select">Главное блюдо</label>
-                    <select name="main_dish" id="main-dish-select" required>
-                        <option value="">-- Выберите главное блюдо --</option>
-                        <option value="potatoes">Жареная картошка с грибами</option>
-                        <option value="carbonara">Паста "Карбонара"</option>
-                        <option value="pizza">Пицца "Маргарита"</option>
-                    </select>
+                        <div id="total-price-block" style="display: none;">
+                            <span class="total-label">Итого</span>
+                            <span id="total-price-value">0₽</span>
+                        </div>
+                    </div>
 
-                    <label for="drink-select">Напиток</label>
-                    <select name="drink" id="drink-select" required>
-                        <option value="">-- Выберите напиток --</option>
-                        <option value="tea">Чай без сахара</option>
-                        <option value="apple_juice">Яблочный сок</option>
-                        <option value="smoothie">Клубничный смузи</option>
-                    </select>
-
-                    <label for="comments">Комментарии к заказу</label>
+                    <label for="comments" style="margin-top: 20px;">Комментарии к заказу</label>
                     <textarea name="comments" id="comments" rows="5"></textarea>
+
+                    <input type="hidden" name="soup" id="input-soup">
+                    <input type="hidden" name="main_dish" id="input-main">
+                    <input type="hidden" name="drink" id="input-drink">
                 </div>
 
                 <div class="form-column">
@@ -197,6 +126,9 @@
             <p>Позвонить нам <a href="tel:+74955555555">+7-495-555-55-55</a></p>
         </div>
     </footer>
+
+    <script src="dishes.js"></script>
+    <script src="lunch.js"></script>
 
 </body>
 </html>
