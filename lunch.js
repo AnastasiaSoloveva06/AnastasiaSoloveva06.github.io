@@ -241,10 +241,7 @@ function showNotification(message) {
     dialog.showModal(); 
 }
 
-/**
- * Проверяет, соответствует ли текущий заказ одному из комбо.
- * Возвращает null, если комбо выбрано, или сообщение об ошибке, если нет.
- */
+
 function validateOrder() {
     const hasSoup = !!currentOrder.soup;
     const hasSalad = !!currentOrder.salad;
