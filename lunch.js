@@ -1,6 +1,4 @@
-// lunch.js
 
-// Глобальная переменная для хранения блюд
 let dishes = [];
 
 // При загрузке страницы пытаемся восстановить заказ из localStorage
@@ -46,20 +44,12 @@ const notificationMessage = dialog ? dialog.querySelector('.notification-message
 const notificationButton = dialog ? dialog.querySelector('.notification-button') : null;
 
 
-// --- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ---
-
-/**
- * Вспомогательная функция для получения ключа категории для currentOrder.
- */
 function getCategoryKey(category) {
-    // Категория в HTML (data-category) для Главного Блюда - 'main', но в JSON 'main-course'
     return category === 'main-course' ? 'main' : 
            category === 'main' ? 'main' : category;
 }
 
-/**
- * Проверяет, соответствует ли текущий заказ одному из доступных комбо.
- */
+// Проверка комбо
 function checkComboValidity(order) {
     const hasMain = !!order.main;
     // Комбо требует Суп ИЛИ Салат
@@ -70,9 +60,7 @@ function checkComboValidity(order) {
     return hasMain && hasSoupOrSalad && hasDrink;
 }
 
-/**
- * Рассчитывает общую стоимость заказа.
- */
+// Общая стоимость
 function calculateTotalPrice(order) {
     let totalPrice = 0;
     const keywords = Object.values(order).filter(id => id !== null); 
@@ -87,9 +75,7 @@ function calculateTotalPrice(order) {
     return totalPrice;
 }
 
-/**
- * Обновляет панель оформления заказа: цену, статус кнопки и видимость.
- */
+// Обновление панели оформления заказа
 function updateCheckoutPanel() {
     if (!checkoutPanel) return;
     
@@ -115,9 +101,7 @@ function updateCheckoutPanel() {
     checkoutPanel.style.display = isOrderEmpty ? 'none' : 'flex'; 
 }
 
-/**
- * Обновляет визуальное выделение выбранного блюда в меню.
- */
+
 function updateSelectionHighlight(categoryName) {
     const categoryKey = getCategoryKey(categoryName);
     
@@ -137,9 +121,7 @@ function updateSelectionHighlight(categoryName) {
     });
 }
 
-/**
- * Показывает модальное окно с уведомлением.
- */
+// модальное окно с уведомлениями
 function showNotification(message) {
     if (!dialog || !notificationMessage) return;
     
@@ -153,7 +135,7 @@ function showNotification(message) {
 }
 
 
-// --- ОСНОВНАЯ ЛОГИКА МЕНЮ ---
+// Логика меню
 
 async function loadDishes() {
     try {
@@ -280,24 +262,24 @@ function addToOrder(dish) {
 }
 
 
-// --- ОБРАБОТЧИК КНОПКИ "ПЕРЕЙТИ К ОФОРМЛЕНИЮ" ---
+// Кнопка "Перейти к оформлению"
 if (checkoutLink) {
     checkoutLink.addEventListener('click', (event) => {
         const isValidCombo = checkComboValidity(currentOrder);
         
         if (!isValidCombo) {
-            event.preventDefault(); // Блокируем переход
+            event.preventDefault(); 
             
             const isOrderEmpty = calculateTotalPrice(currentOrder) === 0;
             
             if (!isOrderEmpty) {
                  showNotification('Для оформления заказа необходимо собрать комбо: Главное блюдо + (Суп или Салат) + Напиток.');
             } else {
-                 // Этот блок не должен срабатывать, так как пустая панель скрыта
+            
                  showNotification('Ваш заказ пуст. Выберите блюда для продолжения.');
             }
         }
-        // Если isValidCombo == true, переход происходит по умолчанию
+
     });
 }
 
@@ -334,5 +316,5 @@ menuSections.forEach(section => {
     });
 });
 
-// Запуск
+
 loadDishes();
