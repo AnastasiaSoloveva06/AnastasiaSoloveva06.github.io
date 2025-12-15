@@ -13,7 +13,6 @@ body {
     font-family: 'Inter', sans-serif;
     color: #000;
     line-height: 1.5;
-    /* Flex-контейнер для stickiness */
     display: flex;
     flex-direction: column;
 }
@@ -213,7 +212,7 @@ footer .container {
     }
 }
 
-/* --- Стили для формы заказа --- */
+/* Стили для формы заказа */
 
 .order-section {
     margin-top: 50px;
@@ -228,7 +227,7 @@ footer .container {
 
 .order-form {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки */
+    grid-template-columns: 1fr 1fr; 
     gap: 40px;
 }
 
@@ -450,21 +449,16 @@ dialog::backdrop {
     background-color: #f0f0f0; 
 }
 
-/* style.css (дополнения) */
-
-/* Стили для sticky панели оформления заказа */
 .sticky-checkout-panel {
-    position: -webkit-sticky; /* Для совместимости с Safari */
-    position: sticky; /* Использование position: sticky */
-    bottom: 0; /* Прилипает к нижнему краю */
+    position: -webkit-sticky; 
+    position: sticky; 
+    bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f7f7f7; /* Светлый фон */
+    background-color: #f7f7f7; 
     border-top: 1px solid #ccc;
     padding: 10px 0;
-    z-index: 999; /* Чтобы была поверх остального контента */
-    
-    /* display: flex используется для показа/скрытия в JS */
+    z-index: 999; 
     justify-content: center;
 }
 
@@ -510,7 +504,7 @@ dialog::backdrop {
 
 .sticky-checkout-panel .btn-checkout.disabled {
     
-    background-color: #ccc; /* Серый цвет для неактивной кнопки */
+    background-color: #ccc; 
     opacity: 0.8; 
     cursor: default;
 }
