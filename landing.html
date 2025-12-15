@@ -440,14 +440,10 @@
         // Обработка формы обратной связи
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Здесь обычно отправка данных на сервер
-            // В данном примере просто покажем сообщение об успехе
             alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
             this.reset();
         });
         
-        // Плавная прокрутка для навигационных ссылок
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
