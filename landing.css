@@ -1,4 +1,4 @@
-/* landing.css - Кастомные стили для лендинга MetroLunch */
+
 
 :root {
     --metro-red: #ff4d4d;
@@ -244,7 +244,6 @@ body {
     transform: translateX(5px);
 }
 
-/* CTA Section - томатный градиент */
 .cta-section {
     background: linear-gradient(135deg, tomato 0%, #ff4500 100%);
     color: white;
@@ -276,26 +275,25 @@ body {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    color: white; /* Добавляем белый цвет для всего текста внутри блока */
+    color: white; 
 }
 
-/* Заголовки 1 минута и 30 минут */
 .cta-highlight .display-6 {
     font-size: 3rem;
-    color: white; /* Белый цвет для цифр */
+    color: white; 
     margin-bottom: 0.25rem;
 }
 
 /* Текст под цифрами */
 .cta-highlight p {
-    color: rgba(255, 255, 255, 0.9); /* Немного прозрачный белый для подписей */
+    color: rgba(255, 255, 255, 0.9); 
     margin-bottom: 0;
     font-size: 1rem;
 }
 
 /* Разделитель */
 .cta-highlight hr {
-    border-color: rgba(255, 255, 255, 0.3); /* Светлый разделитель */
+    border-color: rgba(255, 255, 255, 0.3); 
     opacity: 0.5;
 }
 
@@ -330,28 +328,23 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Переопределяем класс .text-primary в CTA секции */
+
 .cta-section .text-primary {
     color: white !important;
 }
 
-/* Или более конкретно для цифр в CTA */
 .cta-highlight .text-primary {
     color: white !important;
 }
 
-/* А также для всех текстовых элементов внутри CTA */
 .cta-highlight * {
     color: white !important;
 }
 
-/* Альтернативно, если выше не сработает, переопределите конкретные селекторы */
 .cta-highlight .display-6.text-primary {
     color: white !important;
 }
 
-
-/* Контактная секция */
 .contact-item .contact-icon {
     width: 50px;
     height: 50px;
@@ -506,14 +499,12 @@ body {
     }
 }
 
-/* Убедитесь, что кнопки кликабельны */
 .btn {
     cursor: pointer !important;
     position: relative !important;
     z-index: 1 !important;
 }
 
-/* Убедитесь, что hero-секция не перекрывает кнопки */
 .hero-section {
     position: relative;
     z-index: 1;
