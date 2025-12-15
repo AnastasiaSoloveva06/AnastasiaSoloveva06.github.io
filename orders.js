@@ -61,19 +61,15 @@ const deleteModal = document.getElementById('delete-modal');
 const notification = document.getElementById('notification');
 
 const editForm = document.getElementById('edit-form');
-// const editTimeInput = document.getElementById('edit-delivery-time'); // Удален из-за изменения HTML
 const deleteConfirmBtn = deleteModal.querySelector('.btn-delete');
 
 
-// --- Утилиты ---
 
 // Загрузка заказов
 function loadOrders() {
     let orders = JSON.parse(localStorage.getItem(ORDERS_STORAGE_KEY)) || [];
     
-    // Включение моков, если заказов нет и моки еще не загружены
     if (orders.length === 0 && !localStorage.getItem(MOCK_KEY)) {
-        // Чтобы не перезаписать существующие заказы при добавлении
         const ordersToSave = JSON.parse(JSON.stringify(MOCK_ORDERS));
         localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(ordersToSave));
         localStorage.setItem(MOCK_KEY, 'true');
@@ -120,17 +116,15 @@ function formatOrderDate(isoDateString) {
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
-    }).replace(',', ''); // Удаляем запятую
+    }).replace(',', ''); 
 }
 
 
-// --- Рендеринг и основные функции ---
 
 // Рендеринг заказов
 function renderOrders() {
     const orders = loadOrders();
-    
-    // Сортировка по дате (от новых к старым)
+
     orders.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     if (orders.length === 0) {
@@ -141,7 +135,7 @@ function renderOrders() {
 
     emptyMessage.style.display = 'none';
     tableWrapper.style.display = 'block';
-    tableBody.innerHTML = ''; // Очистка перед рендерингом
+    tableBody.innerHTML = ''; 
 
     orders.forEach((order, index) => {
         const formattedDate = formatOrderDate(order.date);
@@ -160,7 +154,6 @@ function renderOrders() {
              deliveryClass = '';
         }
         
-        // Получаем строку названий блюд для title, если dishes - массив объектов
         const dishesNames = Array.isArray(order.dishes) ? 
             order.dishes.map(d => d.name || d).join(', ') : 
             (Array.isArray(order.dishes) ? order.dishes.join(', ') : 'Не указаны');
@@ -187,12 +180,10 @@ function renderOrders() {
     addOrderActionListeners();
 }
 
-// --- Обработчики действий ---
+// Обработчики действий 
 
 function addOrderActionListeners() {
-    // Используем делегирование событий или пересоздание кнопок для надежности
     document.querySelectorAll('.action-buttons button').forEach(button => {
-        // Заменяем кнопку на ее клон, чтобы удалить старые слушатели
         const new_button = button.cloneNode(true);
         button.parentNode.replaceChild(new_button, button);
 
@@ -215,9 +206,8 @@ function addOrderActionListeners() {
     });
 }
 
-// --- Логика модальных окон ---
 
-// **1. Подробнее (Просмотр)**
+// 1. Подробнее (Просмотр)
 function showDetailsModal(orderId) {
     const order = findOrder(orderId);
     if (!order) return showNotification('Ошибка: Заказ не найден.', true);
@@ -227,14 +217,11 @@ function showDetailsModal(orderId) {
     let deliveryInfo = (order.deliveryTimeType === 'asap') ? 
         'Как можно скорее' : (order.deliveryTime ? `${order.deliveryTime}` : 'Не указано');
     
-    // Форматирование списка блюд (для соответствия макету)
+ 
     let dishesListHtml = '';
-    
-    // Предполагаем, что order.dishes - это массив объектов {name: string, price: number}
-    // Если это массив строк, используем его
+
     if (Array.isArray(order.dishes) && order.dishes.length > 0) {
         order.dishes.forEach(dish => {
-            // Если dish - объект, используем name и price. Иначе - как название.
             const name = dish.name || dish;
             const price = dish.price || 0;
             
@@ -330,7 +317,6 @@ editForm.addEventListener('submit', (e) => {
     
     const formData = new FormData(editForm);
     const orderId = formData.get('id');
-    // const deliveryTimeType = formData.get('delivery_time_type'); // OLD
     const deliveryTime = formData.get('delivery_time');
 
     // Логика определения типа времени доставки на основе наличия времени в поле
@@ -360,7 +346,7 @@ editForm.addEventListener('submit', (e) => {
         localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
         
         closeModal(editModal);
-        renderOrders(); // Обновление списка
+        renderOrders();
         showNotification('✅ Заказ успешно изменён!', false);
     } catch (error) {
         console.error('Ошибка сохранения заказа:', error);
@@ -372,7 +358,6 @@ editForm.addEventListener('submit', (e) => {
 // **3. Удаление**
 function showDeleteModal(orderId) {
     document.getElementById('delete-order-id-confirm').textContent = orderId;
-    // Привязываем ID к кнопке "Да, удалить" для использования в обработчике
     deleteConfirmBtn.dataset.id = orderId; 
     openModal(deleteModal);
 }
@@ -390,7 +375,7 @@ function deleteOrder(orderId) {
         localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
         
         closeModal(deleteModal);
-        renderOrders(); // Обновление списка
+        renderOrders(); 
         showNotification('🗑️ Заказ успешно удалён!', false);
     } catch (error) {
         console.error('Ошибка удаления заказа:', error);
@@ -407,11 +392,8 @@ deleteConfirmBtn.addEventListener('click', (e) => {
 });
 
 
-// --- Общие обработчики закрытия модальных окон (по крестику или кнопке "Отмена"/"Ок") ---
-
 document.querySelectorAll('.close-modal').forEach(button => {
     button.addEventListener('click', (e) => {
-        // Находим ближайший родительский элемент с классом 'modal-overlay' и закрываем его
         let modal = e.target.closest('.modal-overlay');
         if (modal) {
             closeModal(modal);
@@ -419,6 +401,4 @@ document.querySelectorAll('.close-modal').forEach(button => {
     });
 });
 
-
-// Инициализация
 document.addEventListener('DOMContentLoaded', renderOrders);
