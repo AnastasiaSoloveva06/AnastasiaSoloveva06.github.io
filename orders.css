@@ -1,7 +1,7 @@
-/* orders.css */
+
 
 .orders-table-wrapper {
-    overflow-x: auto; /* Для адаптивности на маленьких экранах */
+    overflow-x: auto; 
     margin-top: 20px;
 }
 
@@ -9,7 +9,7 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9em;
-    min-width: 600px; /* Минимальная ширина, чтобы не было слишком узко */
+    min-width: 600px;
 }
 
 .orders-table th, .orders-table td {
@@ -64,7 +64,7 @@
 }
 
 
-/* --- Стили для модальных окон (общие) --- */
+/* Стили для модальных окон (общие) */
 
 .modal-overlay {
     position: fixed;
@@ -85,7 +85,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
-    max-width: 550px; /* Стандартная ширина модального окна */
+    max-width: 550px; 
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
@@ -125,7 +125,6 @@ h3 {
     margin-top: 30px;
 }
 
-/* НОВЫЕ СТИЛИ ДЛЯ УВЕЛИЧЕННЫХ КНОПОК */
 .modal-actions button {
     padding: 10px 20px;
     border-radius: 5px;
@@ -152,7 +151,7 @@ h3 {
     color: white;
 }
 
-/* --- Стили для модального окна Просмотра (DETAILS MODAL) --- */
+/* --- Стили для модального окна Просмотра */
 
 .details-section {
     display: flex;
@@ -169,7 +168,7 @@ h3 {
     text-align: right;
     font-weight: 600;
     word-break: break-word;
-    max-width: 70%; /* чтобы длинные адреса не растягивали label */
+    max-width: 70%; 
 }
 
 .details-subheader {
@@ -182,7 +181,7 @@ h3 {
 .details-multiline-value {
     font-style: italic;
     color: #555;
-    white-space: pre-wrap; /* Сохраняет переводы строк */
+    white-space: pre-wrap; 
 }
 
 #details-dishes-list {
@@ -203,14 +202,14 @@ h3 {
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px solid #eee;
-    text-align: right; /* Стоимость: 490₽ */
+    text-align: right; 
 }
 .details-total span {
     font-weight: 700;
 }
 
 
-/* --- Стили для формы редактирования (EDIT MODAL) --- */
+/* Стили для формы редактирования (EDIT MODAL) */
 
 .form-group {
     margin-bottom: 15px;
@@ -244,8 +243,8 @@ h3 {
 /* Стили для двухколоночной формы (контакты и время) */
 .edit-form-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки одинаковой ширины */
-    gap: 15px 30px; /* Отступы между полями */
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px 30px;
     margin-bottom: 20px;
 }
 
