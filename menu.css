@@ -290,12 +290,8 @@
     }
 }
 
-
-
-
-/* Обязательно добавьте для позиционирования бейджа */
 .dish-card {
-    position: relative; /* Для позиционирования псевдоэлемента */
+    position: relative;
 }
 
 .dish-card.selected {
