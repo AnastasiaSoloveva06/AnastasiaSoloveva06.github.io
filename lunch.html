@@ -18,7 +18,8 @@
             <nav>
                 <a href="index.html">О нас</a>
                 <a href="lunch.html" id="active">Собрать ланч</a> 
-                <a href="#">Заказы</a>
+                <a href="order.html">Оформить заказ</a>
+                <a href="orders.html">Заказы</a>
                 <a href="#contacts">Контакты</a> 
             </nav>
         </header>
@@ -60,10 +61,10 @@
                 </div>
 
                 <div class="combo-option combo-dessert">
-                     <div class="combo-dish">
-                        <img src="desert.png" alt="Десерт">
-                        <p>Десерт</p>
-                        <span class="dessert-note">(Можно добавить к любому заказу)</span>
+                    <div class="combo-dish">
+                         <img src="desert.png" alt="Десерт">
+                         <p>Десерт</p>
+                         <span class="dessert-note">(Можно добавить к любому заказу)</span>
                     </div>
                 </div>
             </div>
@@ -120,93 +121,21 @@
                 </div>
                 <div class="dishes-grid" id="desserts-grid"></div>
             </section>
-        </main>
-
-        <section class="order-section">
-            <h2 class="order-title">Сделать заказ</h2>
-            
-            <form action="https://postman-echo.com/post" method="POST" class="order-form"> 
-                
-                <div class="form-column">
-                    <h3>Ваш заказ</h3>
-                    
-                    <div id="order-container">
-                        <div id="nothing-selected">Ничего не выбрано</div>
-
-                        <div id="order-summary" style="display: none;">
-                            <div class="order-row" id="order-soup"></div>
-                            <div class="order-row" id="order-salad"></div> <div class="order-row" id="order-main"></div>
-                            <div class="order-row" id="order-drink"></div>
-                            <div class="order-row" id="order-dessert"></div> </div>
-
-                        <div id="total-price-block" style="display: none;">
-                            <span class="total-label">Итого</span>
-                            <span id="total-price-value">0₽</span>
-                        </div>
-                    </div>
-
-                    <label for="comments" style="margin-top: 20px;">Комментарии к заказу</label>
-                    <textarea name="comments" id="comments" rows="5"></textarea>
-
-                    <input type="hidden" name="soup" id="input-soup">
-                    <input type="hidden" name="salad_starter" id="input-salad"> <input type="hidden" name="main_dish" id="input-main">
-                    <input type="hidden" name="drink" id="input-drink">
-                    <input type="hidden" name="dessert" id="input-dessert"> </div>
-
-                <div class="form-column">
-                    <h3>Ваши данные</h3>
-                    <label for="name">Имя</label>
-                    <input type="text" name="name" id="name" required>
-
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
-
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" name="subscribe" id="subscribe" checked>
-                        <label for="subscribe">Получать информацию о скидках и акциях</label>
-                    </div>
-
-                    <label for="phone">Номер телефона</label>
-                    <input type="tel" name="phone" id="phone" required>
-
-                    <label for="address">Адрес доставки</label>
-                    <input type="text" name="address" id="address" required>
-                    <div class="form-note">Доставка осуществляется только по Москве</div>
-
-                    <div class="delivery-options">
-                        <p>Время доставки:</p>
-                        <div class="radio-option">
-                            <input type="radio" name="delivery_time_type" id="time-asap" value="asap" required>
-                            <label for="time-asap">Как можно скорее</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" name="delivery_time_type" id="time-specified" value="specified">
-                            <label for="time-specified">К указанному времени</label>
-                        </div>
-                    </div>
-
-                    <label for="delivery-time">Укажите время доставки</label>
-                    <div class="time-input-wrapper">
-                        <input type="time" name="delivery_time" id="delivery-time" min="07:00" max="23:00" step="300">
-                        <div class="form-note">Доступное время доставки с 7:00 до 23:00</div>
-                    </div>
-
-                    <div class="form-buttons">
-                        <button type="reset" class="btn-reset">Сбросить</button>
-                        <button type="submit" class="btn-submit">Отправить</button>
-                    </div>
-                </div>
-
-            </form>
-        </section>
-    </div>
-
+        </section> </div> <aside class="sticky-checkout-panel" id="checkout-panel" style="display: none;">
+        <div class="container">
+            <div class="panel-info">
+                <span class="total-label">Текущая стоимость:</span>
+                <span class="total-price" id="total-price-value">0₽</span> 
+            </div>
+            <a href="order.html" class="btn-checkout disabled" id="checkout-link">Перейти к оформлению</a>
+        </div>
+    </aside>
     <footer id="contacts">
         <div class="container">
             <p>Позвонить нам <a href="tel:+74955555555">+7-495-555-55-55</a></p>
         </div>
     </footer>
-    <script src="dishes.js"></script>
+    
     <script src="lunch.js"></script>
 
 </body>

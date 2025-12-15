@@ -289,3 +289,17 @@
         justify-content: center;
     }
 }
+
+
+
+
+/* Обязательно добавьте для позиционирования бейджа */
+.dish-card {
+    position: relative; /* Для позиционирования псевдоэлемента */
+}
+
+.dish-card.selected {
+    border: 2px solid tomato !important; 
+   
+    filter: drop-shadow(0 0 10px rgba(255, 99, 71, 0.4)); 
+}

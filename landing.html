@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetroLunch - Доставка бизнес-ланчей в офис</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Кастомные стили для лендинга -->
+    <link rel="stylesheet" href="landing.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="landing.html">
+                <i class="bi bi-basket-fill text-danger"></i> MetroLunch
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#hero">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Преимущества</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lunch.html">Собрать ланч</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Основной сайт</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-4">Свежие бизнес-ланчи прямо в офис</h1>
+                    <p class="lead mb-4">MetroLunch — это быстрая доставка вкусных и полезных обедов для сотрудников. Больше никаких очередей и разогретой еды — только свежеприготовленные блюда к назначенному времени.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#cta" class="btn btn-light btn-lg px-4 py-3 fw-bold">
+                            <i class="bi bi-basket me-2"></i>Собрать ланч
+                        </a>
+                        <a href="#features" class="btn btn-outline-light btn-lg px-4 py-3">
+                            <i class="bi bi-info-circle me-2"></i>Узнать больше
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Вкусный бизнес-ланч" class="img-fluid rounded-3 shadow-lg">
+                        <div class="stats-overlay">
+                            <div class="stat-item">
+                                <h3 class="stat-number">15+</h3>
+                                <p class="stat-text">ресторанов-партнеров</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="stat-number">500+</h3>
+                                <p class="stat-text">довольных клиентов</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="stat-number">30</h3>
+                                <p class="stat-text">минут доставка</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="features" class="features-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Почему выбирают MetroLunch</h2>
+                    <p class="section-subtitle">Мы делаем ваш обеденный перерыв по-настоящему приятным</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h4 class="feature-title">Как в метро</h4>
+                        <p class="feature-text">Доставляем вовремя, без задержек. Ваш обед будет на столе в назначенное время.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-egg-fried"></i>
+                        </div>
+                        <h4 class="feature-title">Сбалансировано</h4>
+                        <p class="feature-text">Блюда разработаны диетологами для поддержания энергии и продуктивности.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-thermometer-sun"></i>
+                        </div>
+                        <h4 class="feature-title">Всегда свежее</h4>
+                        <p class="feature-text">Приготовлено сегодня утром, никогда не разогретое. Только свежие ингредиенты.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Прямо в офис</h4>
+                        <p class="feature-text">Бесплатная доставка в пределах ЦАО. Ваш обед привезут прямо к рабочему месту.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="p-4 bg-light rounded-3 h-100">
+                        <h3 class="mb-3">Как это работает</h3>
+                        <ol class="steps-list">
+                            <li class="step-item">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h5>Выберите блюда</h5>
+                                    <p>Соберите свой идеальный ланч из нашего разнообразного меню.</p>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h5>Укажите время доставки</h5>
+                                    <p>Выберите удобное время, и мы доставим обед точно к назначенному часу.</p>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h5>Получите и наслаждайтесь</h5>
+                                    <p>Горячий свежий обед прямо в офисе. Никаких очередей и разогретой еды.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="p-4 bg-light rounded-3 h-100">
+                        <h3 class="mb-3">Популярные блюда</h3>
+                        <div class="popular-dishes">
+                            <div class="dish-item d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                                <div>
+                                    <h5 class="mb-1">Паста Карбонара</h5>
+                                    <p class="mb-0 text-muted small">Сытная итальянская паста с беконом</p>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-danger">Хит</span>
+                                    <div class="fw-bold text-danger">395₽</div>
+                                </div>
+                            </div>
+                            <div class="dish-item d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                                <div>
+                                    <h5 class="mb-1">Салат "Цезарь" с курицей</h5>
+                                    <p class="mb-0 text-muted small">Свежий салат с хрустящими крутонами</p>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-success">Популярное</span>
+                                    <div class="fw-bold">320₽</div>
+                                </div>
+                            </div>
+                            <div class="dish-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="mb-1">Стейк из лосося</h5>
+                                    <p class="mb-0 text-muted small">Нежный лосось с овощами на гриле</p>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge bg-warning text-dark">Премиум</span>
+                                    <div class="fw-bold">520₽</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="lunch.html" class="btn btn-link ps-0 mt-3">
+                            Посмотреть все блюда <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию (CTA) -->
+    <section id="cta" class="cta-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 class="display-5 fw-bold mb-3">Соберите свой идеальный бизнес-ланч</h2>
+                    <p class="lead mb-4">Выберите суп, главное блюдо, салат, напиток и десерт по своему вкусу. Всего за 1 минуту!</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="lunch.html" class="btn btn-primary btn-lg px-4 py-3 fw-bold">
+                            <i class="bi bi-basket me-2"></i>Собрать ланч сейчас
+                        </a>
+                        <a href="order.html" class="btn btn-outline-light btn-lg px-4 py-3">
+                            <i class="bi bi-clock me-2"></i>Оформить заказ
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="cta-highlight p-4 rounded-3">
+                        <div class="display-6 fw-bold text-primary mb-2">1 минута</div>
+                        <p class="mb-0">на оформление заказа</p>
+                        <hr class="my-3">
+                        <div class="display-6 fw-bold text-primary mb-2">30 минут</div>
+                        <p class="mb-0">среднее время доставки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактная форма -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Свяжитесь с нами</h2>
+                    <p class="section-subtitle">Остались вопросы? Мы с радостью на них ответим!</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="contact-info p-4 bg-light rounded-3 h-100">
+                        <h3 class="mb-4">Контактная информация</h3>
+                        
+                        <div class="contact-item d-flex mb-4">
+                            <div class="contact-icon me-3">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div>
+                                <h5>Телефон</h5>
+                                <a href="tel:+74955555555" class="text-decoration-none">+7 (495) 555-55-55</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item d-flex mb-4">
+                            <div class="contact-icon me-3">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <a href="mailto:info@metrolunch.ru" class="text-decoration-none">info@metrolunch.ru</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item d-flex mb-4">
+                            <div class="contact-icon me-3">
+                                <i class="bi bi-clock-fill"></i>
+                            </div>
+                            <div>
+                                <h5>Время работы</h5>
+                                <p class="mb-0">Пн-Пт: 8:00-20:00<br>Сб-Вс: 10:00-18:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item d-flex">
+                            <div class="contact-icon me-3">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div>
+                                <h5>Адрес</h5>
+                                <p class="mb-0">Москва, ЦАО, ул. Примерная, д. 10</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Мы в соцсетях</h5>
+                            <div class="d-flex gap-3 mt-3">
+                                <a href="https://t.me/ansolo30" class="social-link">
+                                    <i class="bi bi-telegram"></i>
+                                </a>
+                                <a href="https://wa.me/79616559889" class="social-link">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                                <a href="https://vk.com/feed" class="social-link">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="contact-form p-4 bg-light rounded-3">
+                        <h3 class="mb-4">Форма обратной связи</h3>
+                        <form id="feedbackForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Имя *</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Телефон *</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="company" class="form-label">Компания</label>
+                                <input type="text" class="form-control" id="company">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Сообщение *</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="subscribe" checked>
+                                <label class="form-check-label" for="subscribe">
+                                    Хочу получать информацию о скидках и акциях
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <i class="bi bi-send me-2"></i>Отправить сообщение
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="footer-brand mb-3">
+                        <i class="bi bi-basket-fill"></i> MetroLunch
+                    </h3>
+                    <p class="mb-4">Доставка свежих бизнес-ланчей в офисы Москвы. Быстро, вкусно, удобно.</p>
+                    <div class="d-flex gap-3">
+                        <a href="https://t.me/ansolo30" class="text-light"><i class="bi bi-telegram fs-5"></i></a>
+                        <a href="https://wa.me/79616559889" class="text-light"><i class="bi bi-whatsapp fs-5"></i></a>
+                        <a href="https://vk.com/a.nik_s" class="text-light"><i class="bi bi-instagram fs-5"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#hero" class="text-light text-decoration-none">Главная</a></li>
+                        <li class="mb-2"><a href="#features" class="text-light text-decoration-none">Преимущества</a></li>
+                        <li class="mb-2"><a href="lunch.html" class="text-light text-decoration-none">Собрать ланч</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-light text-decoration-none">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Сайт</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">О нас</a></li>
+                        <li class="mb-2"><a href="lunch.html" class="text-light text-decoration-none">Собрать ланч</a></li>
+                        <li class="mb-2"><a href="order.html" class="text-light text-decoration-none">Оформить заказ</a></li>
+                        <li class="mb-2"><a href="orders.html" class="text-light text-decoration-none">Мои заказы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="mb-3">Контакты</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-telephone me-2"></i>
+                            <a href="tel:+74955555555" class="text-light text-decoration-none">+7 (495) 555-55-55</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-envelope me-2"></i>
+                            <a href="mailto:info@metrolunch.ru" class="text-light text-decoration-none">info@metrolunch.ru</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            <span>Москва, ЦАО</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-5 border-light opacity-25">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2023 MetroLunch. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-light text-decoration-none me-3">Политика конфиденциальности</a>
+                    <a href="#" class="text-light text-decoration-none">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Кастомный JS для лендинга -->
+    <script>
+        // Обработка формы обратной связи
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Здесь обычно отправка данных на сервер
+            // В данном примере просто покажем сообщение об успехе
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+        
+        // Плавная прокрутка для навигационных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Подсветка активного раздела при прокрутке
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.navbar-nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if(link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

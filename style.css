@@ -213,7 +213,7 @@ footer .container {
     }
 }
 
-/* Стили для формы заказа */
+/* --- Стили для формы заказа --- */
 
 .order-section {
     margin-top: 50px;
@@ -448,4 +448,69 @@ dialog::backdrop {
 
 .notification-button:hover {
     background-color: #f0f0f0; 
+}
+
+/* style.css (дополнения) */
+
+/* Стили для sticky панели оформления заказа */
+.sticky-checkout-panel {
+    position: -webkit-sticky; /* Для совместимости с Safari */
+    position: sticky; /* Использование position: sticky */
+    bottom: 0; /* Прилипает к нижнему краю */
+    left: 0;
+    right: 0;
+    background-color: #f7f7f7; /* Светлый фон */
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    z-index: 999; /* Чтобы была поверх остального контента */
+    
+    /* display: flex используется для показа/скрытия в JS */
+    justify-content: center;
+}
+
+.sticky-checkout-panel .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.sticky-checkout-panel .panel-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.sticky-checkout-panel .total-label {
+    font-weight: 400;
+    color: #333;
+}
+
+.sticky-checkout-panel .total-price {
+    font-weight: 700;
+    color: tomato;
+}
+
+.sticky-checkout-panel .btn-checkout {
+    /* Стили для кнопки-ссылки */
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: tomato;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+    min-width: 180px;
+}
+
+.sticky-checkout-panel .btn-checkout.disabled {
+    
+    background-color: #ccc; /* Серый цвет для неактивной кнопки */
+    opacity: 0.8; 
+    cursor: default;
 }

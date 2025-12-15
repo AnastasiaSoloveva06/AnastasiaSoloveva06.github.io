@@ -1,0 +1,520 @@
+/* landing.css - Кастомные стили для лендинга MetroLunch */
+
+:root {
+    --metro-red: #ff4d4d;
+    --metro-orange: #ff6b35;
+    --metro-dark: #1a1a2e;
+    --metro-light: #f8f9fa;
+    --metro-gray: #6c757d;
+}
+
+/* Общие стили */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Навигация */
+.navbar {
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    color: var(--metro-red) !important;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+    color: var(--metro-dark);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--metro-red) !important;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background-color: var(--metro-red);
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--metro-red) 0%, var(--metro-orange) 100%);
+    color: white;
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMjAiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+');
+    opacity: 0.1;
+}
+
+.hero-section h1 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.hero-image-wrapper {
+    position: relative;
+}
+
+.hero-image-wrapper img {
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.hero-image-wrapper:hover img {
+    transform: translateY(-10px);
+}
+
+.stats-overlay {
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    color: var(--metro-red);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.stat-text {
+    color: var(--metro-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Секции */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--metro-dark);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--metro-red);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    color: var(--metro-gray);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* Карточки преимуществ */
+.feature-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--metro-red);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--metro-red) 0%, var(--metro-orange) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.feature-icon i {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.feature-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--metro-dark);
+}
+
+.feature-text {
+    color: var(--metro-gray);
+    margin-bottom: 0;
+}
+
+/* Список шагов */
+.steps-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.step-item {
+    display: flex;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.step-item:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--metro-red) 0%, var(--metro-orange) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.step-content h5 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--metro-dark);
+}
+
+.step-content p {
+    color: var(--metro-gray);
+    margin-bottom: 0;
+}
+
+/* Популярные блюда */
+.dish-item {
+    transition: all 0.2s ease;
+}
+
+.dish-item:hover {
+    transform: translateX(5px);
+}
+
+/* CTA Section - томатный градиент */
+.cta-section {
+    background: linear-gradient(135deg, tomato 0%, #ff4500 100%);
+    color: white;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMjAiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+');
+    opacity: 0.1;
+}
+
+.cta-section h2 {
+    color: white;
+}
+
+.cta-section .lead {
+    opacity: 0.9;
+}
+
+.cta-highlight {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white; /* Добавляем белый цвет для всего текста внутри блока */
+}
+
+/* Заголовки 1 минута и 30 минут */
+.cta-highlight .display-6 {
+    font-size: 3rem;
+    color: white; /* Белый цвет для цифр */
+    margin-bottom: 0.25rem;
+}
+
+/* Текст под цифрами */
+.cta-highlight p {
+    color: rgba(255, 255, 255, 0.9); /* Немного прозрачный белый для подписей */
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+/* Разделитель */
+.cta-highlight hr {
+    border-color: rgba(255, 255, 255, 0.3); /* Светлый разделитель */
+    opacity: 0.5;
+}
+
+/* Кнопки */
+.cta-section .btn-primary {
+    background-color: white;
+    color: tomato;
+    border: 2px solid white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-section .btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: tomato;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section .btn-outline-light {
+    color: white;
+    border: 2px solid white;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-section .btn-outline-light:hover {
+    background-color: white;
+    color: tomato;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Переопределяем класс .text-primary в CTA секции */
+.cta-section .text-primary {
+    color: white !important;
+}
+
+/* Или более конкретно для цифр в CTA */
+.cta-highlight .text-primary {
+    color: white !important;
+}
+
+/* А также для всех текстовых элементов внутри CTA */
+.cta-highlight * {
+    color: white !important;
+}
+
+/* Альтернативно, если выше не сработает, переопределите конкретные селекторы */
+.cta-highlight .display-6.text-primary {
+    color: white !important;
+}
+
+
+/* Контактная секция */
+.contact-item .contact-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--metro-red) 0%, var(--metro-orange) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-item .contact-icon i {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.contact-item h5 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--metro-dark);
+}
+
+.contact-item a {
+    color: var(--metro-red);
+    font-weight: 500;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: var(--metro-dark);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--metro-red);
+    transform: translateY(-3px);
+}
+
+.social-link i {
+    font-size: 1.2rem;
+}
+
+/* Форма */
+.contact-form .form-control {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--metro-red);
+    box-shadow: 0 0 0 0.25rem rgba(255, 77, 77, 0.25);
+}
+
+.contact-form .form-check-input:checked {
+    background-color: var(--metro-red);
+    border-color: var(--metro-red);
+}
+
+/* Футер */
+.footer-section {
+    background: var(--metro-dark);
+    color: white;
+}
+
+.footer-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.footer-brand i {
+    color: var(--metro-red);
+    margin-right: 10px;
+}
+
+.footer-section h5 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.footer-section a {
+    transition: all 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--metro-red) !important;
+    padding-left: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 0 80px;
+        text-align: center;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .stats-overlay {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 30px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .cta-section {
+        text-align: center;
+        padding: 80px 0;
+    }
+    
+    .cta-highlight {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .stats-overlay {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        margin-bottom: 15px;
+    }
+    
+    .stat-item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Убедитесь, что кнопки кликабельны */
+.btn {
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Убедитесь, что hero-секция не перекрывает кнопки */
+.hero-section {
+    position: relative;
+    z-index: 1;
+}
